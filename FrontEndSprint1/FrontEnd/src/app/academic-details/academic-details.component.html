@@ -1,0 +1,56 @@
+<p>
+  academic-details works!
+</p>
+<div class="example-container6">
+
+    <mat-form-field style="margin:10px">
+      <input matInput placeholder="Education">
+    </mat-form-field>
+
+    <mat-form-field style="margin:10px">
+        <input matInput placeholder="Course">
+      </mat-form-field>
+
+      <mat-form-field  style="margin:10px">
+          <input matInput placeholder="Specialization">
+        </mat-form-field>
+
+        <mat-form-field  style="margin:10px">
+            <input matInput placeholder="University">
+          </mat-form-field> 
+        <mat-form-field  style="margin:10px">
+            <input matInput placeholder="Course Type">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Passing Year">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+        <mat-form-field  style="margin:10px">
+            <input matInput placeholder="Grading System">
+          </mat-form-field >
+        <mat-form-field  style="margin:10px">
+              <input matInput placeholder="Higher Secondary">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [matDatepicker]="pickerThis" placeholder="Passing Year">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>      
+        <mat-form-field  style="margin:10px">
+            <input matInput placeholder="Location">
+              </mat-form-field>      
+         <mat-form-field  style="margin:10px">
+              <input matInput placeholder="Senior Secondary">
+              </mat-form-field>
+         <mat-form-field>
+              <input matInput [matDatepicker]="pickerTo" placeholder="Passing Year">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field  style="margin:10px">
+           <input matInput placeholder="GitHub">
+              </mat-form-field>
+
+            
+           </div>
