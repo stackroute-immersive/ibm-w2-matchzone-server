@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	
-	<artifactId>neo4jdatamodelling-service</artifactId>
+	<artifactId>neo4jmodelling-service</artifactId>
 	
 	<packaging>jar</packaging>
 
-	<name>neo4jdatamodelling-service</name>
+	<name>neo4jmodelling-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
