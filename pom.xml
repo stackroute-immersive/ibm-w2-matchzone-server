@@ -71,7 +71,7 @@
 		<module>zuul-apigateway</module>
 		<module>userprofileservice</module>
 		<module>user-authenticationservice</module>
-		<module>neo4jmodelling-Service</module>
+		<module>neo4jmodelling-service</module>
 	<!--	<module>upstream-service</module>
 		<module>downstream-service</module>
 		<module>neo4jdatamodelling-service</module>
