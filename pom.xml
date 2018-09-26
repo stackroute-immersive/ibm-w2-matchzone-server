@@ -72,14 +72,6 @@
 		<module>userprofileservice</module>
 		<module>user-authenticationservice</module>
 		<module>neo4jmodelling-service</module>
-	<!--	<module>upstream-service</module>
-		<module>downstream-service</module>
-		<module>neo4jdatamodelling-service</module>
-		<module>academicservice</module>
-		<module>certificationservice</module>
-		<module>locationservice</module>
-		<module>personalinfoservice</module>
-		<module>projectsservice</module>
-		<module>skillsservice</module> !-->
+	
 	</modules>
 </project>
