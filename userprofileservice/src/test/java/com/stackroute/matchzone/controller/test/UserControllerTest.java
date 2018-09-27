@@ -54,7 +54,7 @@ public class UserControllerTest {
     }
 
         @Test
-        public void registerUserSuccess() throws Exception {
+        public void registerUserSuccess() throws UserAlreadyExistsException {
 
             when(userService.createUser(user)).thenReturn(true);
             assertNotNull(userService.getUser("Jhon Simon"));
@@ -65,7 +65,7 @@ public class UserControllerTest {
         }
 
         @Test
-        public void registerUserFailure() throws Exception {
+        public void registerUserFailure() throws UserAlreadyExistsException {
 
             when(userService.createUser(any())).thenThrow(UserAlreadyExistsException.class);
             assertNotNull(userService.getUser("Jhon Simon"));
