@@ -51,7 +51,7 @@ public class UserServiceImplTest {
 
     }
 
-    @Test(expected = UserAlreadyExistsException.class       )
+    @Test(expected = UserAlreadyExistsException.class)
     public void registerUserFailure() throws UserAlreadyExistsException {
         when(userRepository.insert((User) any())).thenReturn(null);
         boolean userSaved = userService.createUser(user);
