@@ -54,24 +54,34 @@ public class UserControllerTest {
     }
 
         @Test
-        public void registerUserSuccess() throws UserAlreadyExistsException {
+        public void registerUserSuccess() throws UserAlreadyExistsException, UserNotFoundException {
 
             when(userService.createUser(user)).thenReturn(true);
             assertNotNull(userService.getUser("Jhon Simon"));
-            mockMvc.perform(post("/api/v1/user")
-                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                    .andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(post("/api/v1/user")
+				        .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+				        .andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
 
         @Test
-        public void registerUserFailure() throws UserAlreadyExistsException {
+        public void registerUserFailure() throws UserAlreadyExistsException, UserNotFoundException {
 
             when(userService.createUser(any())).thenThrow(UserAlreadyExistsException.class);
             assertNotNull(userService.getUser("Jhon Simon"));
-            mockMvc.perform(post("/api/v1/user")
-                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                    .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(post("/api/v1/user")
+				        .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+				        .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
         @Test
@@ -79,9 +89,14 @@ public class UserControllerTest {
             user.setUserPassword("23456789");
             assertNotNull(userService.getUser("Jhon Simon"));
             when(userService.updateUser(eq(user.getUserEmail()), any())).thenReturn(user);
-            mockMvc.perform(put("/api/v1/user/Jhon123")
-                    .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                    .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(put("/api/v1/user/Jhon123")
+				        .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+				        .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
 
@@ -90,19 +105,29 @@ public class UserControllerTest {
                 user.setUserPassword("23456789");
                 assertNotNull(userService.getUser("Jhon Simon"));
                 when(userService.updateUser(eq(user.getUserEmail()), any())).thenThrow(UserNotFoundException.class);
-                mockMvc.perform(put("/api/v1/user/Jhon123")
-                        .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                        .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+                try {
+					mockMvc.perform(put("/api/v1/user/Jhon123")
+					        .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+					        .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
         }
         @Test
         public void deleteUserSuccess() throws UserNotFoundException {
             when(userService.deleteUser("Jhon123")).thenReturn(true);
             assertNotNull(userService.getUser("Jhon Simon"));
-            mockMvc.perform(delete("/api/v1/user/Jhon123")
-                    .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(delete("/api/v1/user/Jhon123")
+				        .contentType(MediaType.APPLICATION_JSON))
+				        .andExpect(status().isOk())
+				        .andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
 
@@ -111,10 +136,15 @@ public class UserControllerTest {
         public void deleteUserFailure() throws UserNotFoundException {
             when(userService.deleteUser("Jhon123")).thenThrow(UserNotFoundException.class);
             assertNotNull(userService.getUser("Jhon Simon"));
-            mockMvc.perform(delete("/api/v1/user/Jhon123")
-                    .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isNotFound())
-                    .andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(delete("/api/v1/user/Jhon123")
+				        .contentType(MediaType.APPLICATION_JSON))
+				        .andExpect(status().isNotFound())
+				        .andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
         @Test
@@ -122,9 +152,14 @@ public class UserControllerTest {
 
             when(userService.getUser("Jhon123")).thenReturn(user);
             assertNotNull(userService.getUser("Jhon Simon"));
-            mockMvc.perform(get("/api/v1/user/Jhon123").contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(get("/api/v1/user/Jhon123").contentType(MediaType.APPLICATION_JSON))
+				        .andExpect(status().isOk())
+				        .andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
 
         @Test
@@ -132,9 +167,14 @@ public class UserControllerTest {
 
             when(userService.getUser("Jhon123")).thenThrow(UserNotFoundException.class);
             assertNotNull(userService.getUser("Jhon Simon"));
-            mockMvc.perform(get("/api/v1/user/Jhon123").contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isNotFound())
-                    .andDo(MockMvcResultHandlers.print());
+            try {
+				mockMvc.perform(get("/api/v1/user/Jhon123").contentType(MediaType.APPLICATION_JSON))
+				        .andExpect(status().isNotFound())
+				        .andDo(MockMvcResultHandlers.print());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
 
 
