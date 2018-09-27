@@ -2,7 +2,6 @@ package com.stackroute.matchzone.repository.test;
 
 import com.stackroute.matchzone.model.User;
 import com.stackroute.matchzone.repository.UserRepository;
-import com.stackroute.keepnote.exceptions.UserNotFoundException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -50,7 +49,7 @@ public class UserRepositoryTest {
 
     }
 
-    @Test(expected = UserNotFoundException.class)
+    @Test(expected = NoSuchElementException.class)
     public void deleteUserTest() {
         userRepository.insert(user);
         User fetcheduser = userRepository.findById("jhonsimon@gmail.com").get();
