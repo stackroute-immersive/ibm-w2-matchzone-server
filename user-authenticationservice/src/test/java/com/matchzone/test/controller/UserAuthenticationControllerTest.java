@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.matchzone.controller.UserAuthenticationController;
 import com.matchzone.exception.UserAlreadyExistsException;
+import com.matchzone.exception.UserIdAndPasswordMismatchException;
 import com.matchzone.model.User;
 import com.matchzone.repository.UserAuthenticationRepository;
 import com.matchzone.service.UserAuthenticationService;
@@ -65,34 +66,58 @@ public class UserAuthenticationControllerTest
         }
 
         @Test
-        public void registerUserSuccess() throws Exception {
+        public void registerUserSuccess() throws UserAlreadyExistsException {
         	
             when(authenticateService.saveUser(user)).thenReturn(true);
-            mockMvc.perform(post("/api/v1/auth/register")
-                    .contentType(MediaType.APPLICATION_JSON).content(jsonToString(user)))
-                    .andExpect(status().isCreated()).andDo(print());
+            try {
+				mockMvc.perform(post("/api/v1/auth/register")
+				        .contentType(MediaType.APPLICATION_JSON).content(jsonToString(user)))
+				        .andExpect(status().isCreated()).andDo(print());
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
 
         @Test
-        public void registerUserFailure() throws Exception {
+        public void registerUserFailure() throws UserAlreadyExistsException {
 
             when(authenticateService.saveUser(any())).thenThrow(UserAlreadyExistsException.class);
-            mockMvc.perform(post("/api/v1/auth/register")
-                    .contentType(MediaType.APPLICATION_JSON).content(jsonToString(user)))
-                    .andExpect(status().isConflict()).andDo(print());
+            try {
+				mockMvc.perform(post("/api/v1/auth/register")
+				        .contentType(MediaType.APPLICATION_JSON).content(jsonToString(user)))
+				        .andExpect(status().isConflict()).andDo(print());
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
         }
 
 
         @Test
-        public void testLoginUser() throws Exception {
+        public void testLoginUser() throws UserIdAndPasswordMismatchException, UserAlreadyExistsException {
             String emailId = "Johan@gmail.com";
             String password = "1234";
             when(authenticateService.saveUser(user)).thenReturn(true);
             when(authenticateRepository.findByUserEmailAndUserPassword(emailId, password)).thenReturn(user);
-            mockMvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON).content(jsonToString(user)))
-                    .andExpect(status().isOk()).andDo(print());
+            try {
+				mockMvc.perform(post("/api/login").contentType(MediaType.APPLICATION_JSON).content(jsonToString(user)))
+				        .andExpect(status().isOk()).andDo(print());
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
         // Parsing String format data into JSON format
         private static String jsonToString(final Object obj) throws JsonProcessingException {
