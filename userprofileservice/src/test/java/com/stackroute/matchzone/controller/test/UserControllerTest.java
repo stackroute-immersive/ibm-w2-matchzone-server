@@ -75,7 +75,7 @@ public class UserControllerTest {
 
         }
         @Test
-        public void updateUserSuccess() throws Exception {
+        public void updateUserSuccess() throws UserNotFoundException {
             user.setUserPassword("23456789");
             assertNotNull(userService.getUser("Jhon Simon"));
             when(userService.updateUser(eq(user.getUserEmail()), any())).thenReturn(user);
@@ -86,7 +86,7 @@ public class UserControllerTest {
         }
 
         @Test
-        public void updateUserFailure() throws Exception {
+        public void updateUserFailure() throws UserNotFoundException {
                 user.setUserPassword("23456789");
                 assertNotNull(userService.getUser("Jhon Simon"));
                 when(userService.updateUser(eq(user.getUserEmail()), any())).thenThrow(UserNotFoundException.class);
@@ -96,7 +96,7 @@ public class UserControllerTest {
 
         }
         @Test
-        public void deleteUserSuccess() throws Exception {
+        public void deleteUserSuccess() throws UserNotFoundException {
             when(userService.deleteUser("Jhon123")).thenReturn(true);
             assertNotNull(userService.getUser("Jhon Simon"));
             mockMvc.perform(delete("/api/v1/user/Jhon123")
@@ -108,7 +108,7 @@ public class UserControllerTest {
 
 
         @Test
-        public void deleteUserFailure() throws Exception {
+        public void deleteUserFailure() throws UserNotFoundException {
             when(userService.deleteUser("Jhon123")).thenThrow(UserNotFoundException.class);
             assertNotNull(userService.getUser("Jhon Simon"));
             mockMvc.perform(delete("/api/v1/user/Jhon123")
@@ -118,7 +118,7 @@ public class UserControllerTest {
 
         }
         @Test
-        public void getByUserIdSuccess() throws Exception {
+        public void getByUserIdSuccess() throws UserNotFoundException {
 
             when(userService.getUser("Jhon123")).thenReturn(user);
             assertNotNull(userService.getUser("Jhon Simon"));
@@ -128,7 +128,7 @@ public class UserControllerTest {
         }
 
         @Test
-        public void getByUserIdFAilure() throws Exception {
+        public void getByUserIdFAilure() throws UserNotFoundException {
 
             when(userService.getUser("Jhon123")).thenThrow(UserNotFoundException.class);
             assertNotNull(userService.getUser("Jhon Simon"));
