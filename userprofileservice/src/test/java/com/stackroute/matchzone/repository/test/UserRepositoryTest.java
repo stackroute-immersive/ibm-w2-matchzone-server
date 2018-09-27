@@ -48,16 +48,7 @@ public class UserRepositoryTest {
         Assert.assertEquals(user.getUserEmail(), fetcheduser.getUserEmail());
 
     }
-
-    @Test(expected = NoSuchElementException.class)
-    public void deleteUserTest() {
-        userRepository.insert(user);
-        User fetcheduser = userRepository.findById("jhonsimon@gmail.com").get();
-        Assert.assertEquals("jhonsimon@gmail.com", fetcheduser.getUserEmail());
-        userRepository.delete(fetcheduser);
-        fetcheduser = userRepository.findById("jhonsimon@gmail.com").get();
-
-    }
+    
 
     @Test
     public void updateUserTest() {
