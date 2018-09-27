@@ -1,0 +1,27 @@
+<p>
+  skills works!
+</p>
+
+<div class="example-container1">
+    <mat-form-field style="margin:10px">
+      <input matInput placeholder="IT Skills">
+    </mat-form-field>
+
+    
+
+      <mat-form-field  style="margin:10px">
+          <input matInput placeholder="Version">
+        </mat-form-field>
+
+        <mat-form-field  style="margin:10px">
+            <input matInput placeholder="Level">
+          </mat-form-field>
+          
+          <mat-form-field style="margin:10px">
+              <input matInput [matDatepicker]="picker" placeholder="Last Used">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+
+            
+    </div>
