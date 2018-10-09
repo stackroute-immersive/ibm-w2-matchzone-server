@@ -3,7 +3,7 @@ IBM wave 2 - The matching platform product to retrieve the exact match profile -
 
 # CircleCI
 
-[![CircleCI](https://circleci.com/gh/stackroute-immersive/ibm-w2-buzzup-server/tree/v1.0.0.svg?style=svg)](https://circleci.com/gh/stackroute-immersive/ibm-w2-buzzup-server/tree/v1.0.0)
+[![CircleCI](https://circleci.com/gh/stackroute-immersive/ibm-w2-matchzone-server.svg?style=svg)](https://circleci.com/gh/stackroute-immersive/ibm-w2-matchzone-server)
 
 # Codacy
 
