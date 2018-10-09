@@ -1,7 +1,7 @@
 FROM java:8-jre
 
-ADD ./target/spring-boot-kafka-consumer-example-0.0.1-SNAPSHOT.jar /usr/src/spring-boot-kafka-consumer-example-0.0.1-SNAPSHOT.jar
+ADD ./target/downstream-service-1.1.0.jar /usr/src/downstream-service-1.1.0.jar
 
 WORKDIR usr/src
 
-ENTRYPOINT ["java","-jar", "spring-boot-kafka-consumer-example-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "downstream-service-1.1.0.jar"]

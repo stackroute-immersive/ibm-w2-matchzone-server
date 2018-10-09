@@ -8,7 +8,7 @@
 
 	<groupId>com.stackroute</groupId>
 	<artifactId>ibm-w2-matchzone-server</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -69,9 +69,17 @@
 		<module>config-service</module>
 		<module>eureka-server</module>
 		<module>zuul-apigateway</module>
-		<module>userprofileservice</module>
-		<module>user-authenticationservice</module>
-		<module>neo4jmodelling-service</module>
-	
+		<module>userprofile-service</module>
+		<module>userauthentication-service</module>
+		<module>indexer-service</module>
+		<module>academic-service</module>
+		<module>certification-service</module>
+		<module>location-service</module>
+		<module>personalinfo-service</module>
+		<module>projects-service</module>
+		<module>skill-service</module>	
+		<module>coreNLP-service</module>	
+		<module>downstream-service</module>
+		<module>upstream-service</module>
 	</modules>
 </project>
