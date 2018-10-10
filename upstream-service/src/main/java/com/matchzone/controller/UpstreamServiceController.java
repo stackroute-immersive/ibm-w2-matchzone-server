@@ -16,6 +16,7 @@ import com.matchzone.model.PersonalInfo;
 import com.matchzone.model.Project;
 import com.matchzone.model.Skills;
 
+//Mark this class with @RestController
 @CrossOrigin("*")
 @RestController
 public class UpstreamServiceController {
@@ -48,6 +49,9 @@ public class UpstreamServiceController {
 		this.skillsKafkaTemplate = skillsKafkaTemplate;
 	}
 
+	//Various methods for producing details of user in the kafka
+	
+	
 	@PostMapping("api/v1/acad")
 	public ResponseEntity<?> registerAcademicDetails(@RequestBody AcademicDetails academicDetails) {
 		ResponseEntity<?> responseEntity;
