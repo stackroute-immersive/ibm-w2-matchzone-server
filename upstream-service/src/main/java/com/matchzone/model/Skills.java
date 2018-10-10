@@ -1,5 +1,6 @@
 package com.matchzone.model;
 
+//Model class for Skills
 public class Skills {
 
 	private String profileId;
