@@ -12,8 +12,8 @@ const httpOptions = {
 })
 export class CertificationService {
 
- private upstreamUrl: string = "http://localhost:8081";
- private downstreamUrl: string = "http://localhost:8067";
+ private upstreamUrl: string = "http://localhost:8091";
+ private downstreamUrl: string = "http://localhost:8085";
 userId:string;
  constructor(private http: HttpClient,private token:TokenStorage) {
   this.userId=token.getUserName();

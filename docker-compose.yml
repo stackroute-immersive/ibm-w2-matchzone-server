@@ -11,7 +11,7 @@ services:
    image: eureka-service
    hostname: localhost
    ports:
-     - 9089:9089
+     - 8081:8081
    healthcheck:
      test: "exit 0"
  
@@ -25,7 +25,7 @@ services:
    image: upstream-service
    hostname: localhost
    ports:
-     - 8081:8081
+     - 8091:8091
    healthcheck:
      test: "exit 0"
 
@@ -39,7 +39,7 @@ services:
    image: downstream-service
    hostname: localhost
    ports:
-     - 8067:8067
+     - 8085:8085
    healthcheck:
      test: "exit 0"
 
@@ -53,7 +53,7 @@ services:
    image: academic-service
    hostname: localhost
    ports:
-     - 8094:8094
+     - 8082:8082
    healthcheck:
      test: "exit 0"
 
@@ -67,7 +67,7 @@ services:
    image: certification-service
    hostname: localhost
    ports:
-     - 8078:8078
+     - 8083:8083
    healthcheck:
      test: "exit 0"
 
@@ -81,7 +81,7 @@ services:
    image: location-service
    hostname: localhost
    ports:
-     - 8093:8093
+     - 8087:8087
    healthcheck:
      test: "exit 0"
 
@@ -95,7 +95,7 @@ services:
    image: personalinfo-service
    hostname: localhost
    ports:
-     - 8097:8097
+     - 8088:8088
    healthcheck:
      test: "exit 0"
  
@@ -109,7 +109,7 @@ services:
    image: project-service
    hostname: localhost
    ports:
-     - 8091:8091
+     - 8089:8089
    healthcheck:
      test: "exit 0"
 
@@ -123,7 +123,7 @@ services:
    image: skill-service
    hostname: localhost
    ports:
-     - 8071:8071
+     - 8090:8090
    healthcheck:
      test: "exit 0"
 
@@ -134,7 +134,7 @@ services:
    image: config-service
    hostname: localhost
    ports:
-     - 8891:8891
+     - 8094:8094
    healthcheck:
      test: "exit 0"
 
@@ -150,7 +150,7 @@ services:
    image: zuul-service
    hostname: localhost
    ports:
-     - 8092:8092
+     - 8080:8080
    healthcheck:
      test: "exit 0"
  
@@ -164,7 +164,7 @@ services:
    image: userprofile-service
    hostname: localhost
    ports:
-     - 8085:8085
+     - 8093:8093
    healthcheck:
      test: "exit 0"
 
@@ -178,7 +178,7 @@ services:
    image: userauthentication-service
    hostname: localhost
    ports:
-     - 8076:8076
+     - 8092:8092
    healthcheck:
      test: "exit 0"
 
@@ -192,7 +192,7 @@ services:
    image: indexer-service
    hostname: localhost
    ports:
-     - 8051:8051
+     - 8086:8086
    healthcheck:
      test: "exit 0"
 
