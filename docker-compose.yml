@@ -269,3 +269,16 @@ services:
 #      - ./import:/import
    healthcheck:
      test: "exit 0"
+
+
+ matchzone-front-end:
+  build: Matchzone-Front-End/
+  image: matchzone-front-end
+  container_name: matchzone-front-end
+  network_mode: "host"
+  hostname: localhost
+  ports:
+   - 4200:4200
+  restart: always
+  healthcheck:
+   test: "exit 0" 
