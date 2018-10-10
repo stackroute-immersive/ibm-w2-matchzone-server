@@ -24,6 +24,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
     @Autowired
     private UserAuthenticationRepository authenticationRepository;
 
+    //Method for generating token from emailId and password
     @Override
     public Map<String,String> generateToken(String emailId, String password) throws UserNotFoundException,UserIdAndPasswordMismatchException {
         Map<String,String> map=new HashMap<>();
