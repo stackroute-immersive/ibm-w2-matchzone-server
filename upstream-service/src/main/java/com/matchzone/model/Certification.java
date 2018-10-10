@@ -1,6 +1,6 @@
 package com.matchzone.model;
 
-
+//Model class for Certification
 public class Certification {
 
 	private String profileId;
