@@ -1,5 +1,6 @@
 package com.matchzone.model;
 
+//Model class for Location details of user
 public class Location {
 
 	private String profileId;
