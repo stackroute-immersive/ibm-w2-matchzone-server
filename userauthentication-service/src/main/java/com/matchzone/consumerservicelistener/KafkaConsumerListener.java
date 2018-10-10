@@ -15,6 +15,7 @@ public class KafkaConsumerListener
 	@Autowired
 	private UserAuthenticationService userAuthenticationService;
 	
+	//Listener method for topic register_data
 	@KafkaListener(topics = "register_data")
 	public void consumeJson(@Payload User user)
 	{
