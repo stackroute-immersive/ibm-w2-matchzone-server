@@ -10,7 +10,7 @@ import com.example.springbootzuulgatwayproxy.filters.ErrorFilter;
 import com.example.springbootzuulgatwayproxy.filters.PostFilter;
 import com.example.springbootzuulgatwayproxy.filters.PreFilter;
 import com.example.springbootzuulgatwayproxy.filters.RouteFilter;
-
+//Annotate this class with @SpringBootApplication 
 @SpringBootApplication
 @EnableDiscoveryClient  // for eureka server to find this application
 @EnableZuulProxy // to act as api-gateway
