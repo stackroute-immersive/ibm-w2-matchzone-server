@@ -12,7 +12,7 @@ import com.matchzone.jwtfilter.JWTFilter;
  * A method named jwtFilter() is implemented which will restrict the access of api's based on the JWT Token.
  */
 @SpringBootApplication
-@EnableEurekaClient
+@EnableEurekaClient // for eureka client to discover services
 public class AuthenticationServiceApplication {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

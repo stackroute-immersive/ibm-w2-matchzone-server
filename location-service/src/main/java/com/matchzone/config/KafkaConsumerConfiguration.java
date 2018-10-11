@@ -16,10 +16,13 @@ import com.matchzone.model.Location;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annoatate the class with @EnableKafka and @Configuration
+
 @EnableKafka 
 @Configuration
 public class KafkaConsumerConfiguration {
 
+	//Kafka for Location
 	@Bean
 	public ConsumerFactory<String, Location> locationConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();

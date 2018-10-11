@@ -7,6 +7,8 @@ import org.neo4j.ogm.annotation.StartNode;
 import com.matchzone.node.SkillNode;
 import com.matchzone.node.UserNode;
 
+//@RelationshipEntity specifies the type of relationship between nodes
+
 @RelationshipEntity(type="Knows")
 
 public class Knows {

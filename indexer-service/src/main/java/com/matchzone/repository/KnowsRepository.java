@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.matchzone.relationship.Knows;
 
+/*Marking this class as @Repository as it will interact with the MongoDB
+ * */
+
 @Repository
 public interface KnowsRepository extends Neo4jRepository<Knows,String> {
 //	

@@ -14,7 +14,7 @@ import com.matchzone.model.Skills;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//Annotate this class with @Configuration
 @Configuration
 public class ProducerKakfaConfiguration 
 {

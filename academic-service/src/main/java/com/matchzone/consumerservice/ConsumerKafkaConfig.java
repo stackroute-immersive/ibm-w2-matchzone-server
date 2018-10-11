@@ -17,11 +17,15 @@ import com.matchzone.model.AcademicDetails;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annotate the class with @EnableKafka and @Configuration
+
 @EnableKafka
 @Configuration
 public class ConsumerKafkaConfig 
 {
  
+	//kafka consumer for Academic details
+	
     @Bean
     public ConsumerFactory<String, AcademicDetails> academicConsumerFactory() {
         Map<String, Object> config = new HashMap<>();

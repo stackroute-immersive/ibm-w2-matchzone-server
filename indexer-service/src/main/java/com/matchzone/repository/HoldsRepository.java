@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.matchzone.relationship.Holds;
 
+/*Marking this class as @Repository as it will interact with the MongoDB
+ * */
 
 @Repository
 public interface HoldsRepository extends Neo4jRepository<Holds,Long>{

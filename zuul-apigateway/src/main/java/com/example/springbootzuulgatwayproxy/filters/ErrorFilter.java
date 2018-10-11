@@ -3,6 +3,9 @@ package com.example.springbootzuulgatwayproxy.filters;
 import com.netflix.zuul.ZuulFilter;
 
 public class ErrorFilter extends ZuulFilter {
+	
+	/*All methods of ErrorFilter are overriden and implemented
+	 * */
 
   @Override
   public String filterType() {

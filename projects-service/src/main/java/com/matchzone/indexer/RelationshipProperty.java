@@ -1,4 +1,7 @@
 package com.matchzone.indexer;
+
+//Model class for RelationshipProperty
+
 public class RelationshipProperty {
 private String relationshipName;
 

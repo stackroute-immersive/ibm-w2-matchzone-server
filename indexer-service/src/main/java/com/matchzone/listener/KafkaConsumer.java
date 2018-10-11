@@ -27,12 +27,13 @@ import com.matchzone.repository.KnowsRepository;
 import com.matchzone.repository.LivesInRepository;
 import com.matchzone.repository.WorkedOnRepository;
 
+//Annotate the class with @Service
 
 @Service
 public class KafkaConsumer {
 	
+	//Model class for KafkaConsumer with various fields
 
-	
 	private KnowsRepository hasSkillRepository;
 	private LivesInRepository livesIn;
 	private CertifiedInRepository cerIn;
@@ -53,6 +54,9 @@ public class KafkaConsumer {
 		
 	}
 
+	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
+	//**Skills**//
+	
 	@KafkaListener(topics = "skill1_data", groupId = "skill_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(@Payload SkillsIndex skillIndex)
 		{
@@ -72,11 +76,11 @@ public class KafkaConsumer {
 
 	}
 	
-	/** Location **/
 	
-
-
-	@KafkaListener(topics = "loc1_data", groupId = "loc_json", containerFactory = "locationKafkaListenerFactory")
+	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
+	//** Location **//
+	
+		@KafkaListener(topics = "loc1_data", groupId = "loc_json", containerFactory = "locationKafkaListenerFactory")
 	public void consumeJson(@Payload LocationIndex locationIndex)
 		{
 		System.out.println("Consumed JSON Message: " + locationIndex);
@@ -92,9 +96,9 @@ public class KafkaConsumer {
 
 	}
 
-//	/** Certification **/
 	
-
+	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
+	//** Certification **/
 
 	@KafkaListener(topics = "certi1_data", groupId = "certi_json", containerFactory = "certiKafkaListenerFactory")
 	public void consumeJson(@Payload CertificationIndex certificationIndex)
@@ -113,10 +117,9 @@ public class KafkaConsumer {
 	}
   
 
-///** Project **/
 	
-	
-
+	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
+	//** Project **/
 
 	@KafkaListener(topics = "proj1_data", groupId = "project_json", containerFactory = "projKafkaListenerFactory")
 	public void consumeJson(@Payload ProjectIndex projectIndex)
@@ -133,10 +136,9 @@ public class KafkaConsumer {
 
 	}
 	
-//	/** Qualification **/
   
-	
-
+	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
+	//** Qualification **/
 
 	@KafkaListener(topics = "acad1_data", groupId = "qual_json", containerFactory = "qualKafkaListenerFactory")
 	public void consumeJson(@Payload QualifiactionIndex qualIndex)
@@ -153,25 +155,3 @@ public class KafkaConsumer {
 
 	}
 }
-	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//	  
-//
-//	  
-//}

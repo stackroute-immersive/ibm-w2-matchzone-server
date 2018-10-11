@@ -1,5 +1,6 @@
 package com.matchzone.model;
 
+//Model class for skillsIndex with various fields
 
 public class SkillsIndex {
 	private String iTSkills;

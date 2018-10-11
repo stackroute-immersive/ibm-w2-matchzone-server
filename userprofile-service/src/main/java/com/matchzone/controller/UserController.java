@@ -19,6 +19,8 @@ import com.matchzone.exceptions.UserNotFoundException;
 import com.matchzone.model.User;
 import com.matchzone.service.UserService;
 
+//Annotate this class with @RestController
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1")

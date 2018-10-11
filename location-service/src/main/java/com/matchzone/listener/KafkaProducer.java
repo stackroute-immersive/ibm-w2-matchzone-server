@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.matchzone.model.Location;
 
+//Annotate the class with @RestController
+
 @RestController
 @RequestMapping("kafka")
 public class KafkaProducer {

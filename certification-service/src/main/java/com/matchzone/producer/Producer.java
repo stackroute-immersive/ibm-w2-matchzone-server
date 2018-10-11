@@ -10,6 +10,10 @@ import com.matchzone.model.Certification;
 @Service
 public class Producer {
 	@Autowired
+	
+	//KafkaTemplate is used for executing certain operations 
+	//**Certification**//
+	
 	private KafkaTemplate<String,Certification> kafkaTemplate;
 
 	public void sendtoindexer(Certification certification) {

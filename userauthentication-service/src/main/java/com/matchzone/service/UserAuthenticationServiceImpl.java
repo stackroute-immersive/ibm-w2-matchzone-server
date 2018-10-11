@@ -57,6 +57,8 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService 
         return map;
     }
 
+  //Method for storing user and credentials (emailId and password)
+
     @Override
     public boolean saveUser(User user) throws UserAlreadyExistsException {
         Optional<User> fetchedUser = authenticationRepository.findById(user.getUserEmail());

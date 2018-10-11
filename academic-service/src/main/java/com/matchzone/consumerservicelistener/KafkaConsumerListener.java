@@ -21,6 +21,7 @@ public class KafkaConsumerListener
 		this.receiver=receiver;
 	}
 
+	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
 
 	@KafkaListener(topics = "acad_data",groupId="acad1_json", containerFactory="kafkaListenerContainerFactory")
 	public void consumeJson(@Payload AcademicDetails academicDetails)

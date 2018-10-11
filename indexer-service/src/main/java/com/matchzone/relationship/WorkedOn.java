@@ -7,6 +7,8 @@ import org.neo4j.ogm.annotation.StartNode;
 import com.matchzone.node.ProjectNode;
 import com.matchzone.node.UserNode;
 
+//@RelationshipEntity specifies the type of relationship between nodes
+
 @RelationshipEntity(type="WorkedOn")
 public class WorkedOn {
 //	private String name;

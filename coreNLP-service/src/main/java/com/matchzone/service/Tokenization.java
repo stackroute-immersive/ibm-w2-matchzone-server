@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tokenization {
+	
+	//Tokenization is done for certain services like skills, organization and location
+	//stop-words are used to filter certain unwanted texts or words like is, was, the.
+	
     public List<String> token(String string,ArrayList<String> stopword,ArrayList<String> extra,ArrayList<String> skill, ArrayList<String> location, ArrayList<String> organization)
     {
         List<String> string1=new ArrayList<>();

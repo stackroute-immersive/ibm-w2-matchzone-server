@@ -1,5 +1,6 @@
 package com.matchzone.model;
 
+//Model class for Certification with various fields
 
 public class Certification {
 

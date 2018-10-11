@@ -15,9 +15,12 @@ import com.matchzone.indexer.TargetNodeProperty;
 @SuppressWarnings("unused")
 @Service
 public class Receiver {
+	/*
+	 * @Autowired for injecting constructor based dependency 
+	 * for Producer class and Indexer class
+     */
 @Autowired
 	private Producer producer;
-
 	public Indexer studiedAtIndexer = new Indexer();
 	public TargetNodeProperty targetNodeProperty = new TargetNodeProperty();
 	 public RelationshipProperty relationshipProperty = new RelationshipProperty();

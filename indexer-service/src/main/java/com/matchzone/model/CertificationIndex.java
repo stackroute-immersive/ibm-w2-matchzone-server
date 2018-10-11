@@ -1,5 +1,7 @@
 package com.matchzone.model;
 
+//Model class for CertificationIndex with various fields
+
 public class CertificationIndex {
 	private String profileId;
 	private String certificationName;

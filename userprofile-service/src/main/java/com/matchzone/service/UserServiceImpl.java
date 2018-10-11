@@ -8,6 +8,8 @@ import com.matchzone.exceptions.UserNotFoundException;
 import com.matchzone.model.User;
 import com.matchzone.repository.UserRepository;
 
+//Annotate the class with @Service
+
 @Service
 public class UserServiceImpl implements UserService {
 	

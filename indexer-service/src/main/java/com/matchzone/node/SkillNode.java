@@ -4,6 +4,8 @@ package com.matchzone.node;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 
+//Model Class annotated with @NodeEntity will be represented as nodes in the graph.
+
 @NodeEntity
 public class SkillNode {
 	

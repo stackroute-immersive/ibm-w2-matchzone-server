@@ -5,7 +5,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.matchzone.model.Project;
-
+//Annotate this class with @Service
 @Service
 public class Producer {
 	@Autowired

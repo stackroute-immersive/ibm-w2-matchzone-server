@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.matchzone.relationship.WorkedOn;
 
+/*Marking this class as @Repository as it will interact with the MongoDB
+ * */
+
 @Repository
 public interface WorkedOnRepository extends Neo4jRepository<WorkedOn,Long>{
 //	@Query("jkdsjkbds,")

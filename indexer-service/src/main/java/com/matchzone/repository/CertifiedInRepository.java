@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.matchzone.relationship.CertifiedIn;
 
+/*Marking this class as @Repository as it will interact with the MongoDB
+ * */
 
 @Repository
 public interface CertifiedInRepository extends Neo4jRepository<CertifiedIn,Long>{

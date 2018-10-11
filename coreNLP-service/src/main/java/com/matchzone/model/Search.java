@@ -2,6 +2,8 @@ package com.matchzone.model;
 
 import java.util.List;
 
+//Model class for Search with various fields
+
 public class Search {
 
 	private List<String> skills;

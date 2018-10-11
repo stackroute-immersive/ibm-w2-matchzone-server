@@ -3,6 +3,8 @@ package com.matchzone;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//Annotate the class with @SpringBootApplication
+
 @SpringBootApplication
 public class IndexerApplication {
 

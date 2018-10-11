@@ -1,9 +1,9 @@
 package com.matchzone.model;
 
+//Model class for QualificationIndex with various fields
+
 public class QualifiactionIndex {
 	private String profileId;
-	
-	
 	private String education;
 	private String course;
 	private String specialisation;

@@ -8,6 +8,10 @@ import com.matchzone.model.AcademicDetails;
 
 @Service
 public class Producer {
+
+	//KafkaTemplate is used for executing certain operations 
+		//**Certification**//
+		
 	@Autowired
 	private KafkaTemplate<String,AcademicDetails> kafkaTemplate;
 

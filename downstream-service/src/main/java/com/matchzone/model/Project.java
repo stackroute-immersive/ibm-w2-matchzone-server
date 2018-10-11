@@ -3,8 +3,15 @@ package com.matchzone.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+//Annotate the class with @Document
+
 @Document
+
+//Model class for Project with various fields
+
 public class Project {
+
+	//@Id annotation to specify the primary key  
 
 	@Id
 	private String profileId;
