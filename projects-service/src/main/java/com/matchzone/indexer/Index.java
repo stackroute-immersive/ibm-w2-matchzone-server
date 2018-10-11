@@ -1,5 +1,7 @@
 package com.matchzone.indexer;
 
+//Model class for Index with various fields
+
 public class Index {
 	private String profileId;
 	private String projectTitle;

@@ -16,11 +16,17 @@ import com.matchzone.model.Project;
 import com.matchzone.model.Skills;
 import com.matchzone.service.DownstreamService;
 
+//Annotate this class with @RestController
+
 @CrossOrigin("*")
 @RestController
 public class DownstreamController {
 
 	private DownstreamService downstreamService;
+
+	/*
+	 * @Autowired for injecting constructor based dependency
+	 */
 
 	@Autowired
 	public DownstreamController(DownstreamService downstreamService) {
@@ -28,6 +34,10 @@ public class DownstreamController {
 		this.downstreamService = downstreamService;
 	}
 	
+	/*
+	 * Get method for getting user's AcademicDetails with a specific id with a mapping "/api/v1/acad/{id}".
+	 */
+
 	@GetMapping("api/v1/acad/{id}")
 	public ResponseEntity<?> getAcademicDetails(@PathVariable("id") String id){
 		ResponseEntity<?> responseEntity;
@@ -39,6 +49,11 @@ public class DownstreamController {
 		return responseEntity;
 			
 	}
+	
+	/*
+	 * Get method for getting user's CertificationDetails with a specific id with a mapping "/api/v1/certi/{id}".
+	 */
+
 	@GetMapping("api/v1/certi/{id}")
 	public ResponseEntity<?> getCertificationDetails(@PathVariable("id") String id){
 		ResponseEntity<?> responseEntity;
@@ -50,6 +65,11 @@ public class DownstreamController {
 		return responseEntity;
 			
 	}
+	
+	/*
+	 * Get method for getting user's LocationDetails with a specific id with a mapping "/api/v1/loc/{id}".
+	 */
+
 	@GetMapping("api/v1/loc/{id}")
 	public ResponseEntity<?> getLocationDetails(@PathVariable("id") String id){
 		ResponseEntity<?> responseEntity;
@@ -61,6 +81,11 @@ public class DownstreamController {
 		return responseEntity;
 			
 	}
+	
+	/*
+	 * Get method for getting user's PersonalDetails with a specific id with a mapping "/api/v1/person/{id}".
+	 */
+
 	@GetMapping("api/v1/person/{id}")
 	public ResponseEntity<?> getPersonalInfoDetails(@PathVariable("id") String id){
 		ResponseEntity<?> responseEntity;
@@ -72,6 +97,11 @@ public class DownstreamController {
 		return responseEntity;
 			
 	}
+	
+	/*
+	 * Get method for getting user's ProjectDetails with a specific id with a mapping "/api/v1/proj/{id}".
+	 */
+
 	@GetMapping("api/v1/proj/{id}")
 	public ResponseEntity<?> getProjectDetails(@PathVariable("id") String id){
 		ResponseEntity<?> responseEntity;
@@ -84,6 +114,10 @@ public class DownstreamController {
 			
 	}
 	
+	/*
+	 * Get method for getting user's SkillsDetails with a specific id with a mapping "/api/v1/skills/{id}".
+	 */
+
 	@GetMapping("api/v1/skills/{id}")
 	public ResponseEntity<?> getSkillsDetails(@PathVariable("id") String id){
 		ResponseEntity<?> responseEntity;

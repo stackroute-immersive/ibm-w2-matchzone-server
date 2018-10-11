@@ -15,8 +15,11 @@ import com.matchzone.model.AcademicDetails;
 @Service
 public class Receiver {
 @Autowired
+/*
+ * @Autowired for injecting constructor based dependency 
+ * for Producer class and Indexer class
+ */
 	private Producer producer;
-
 	public Indexer studiedAtIndexer = new Indexer();
 	public TargetNodeProperty targetNodeProperty = new TargetNodeProperty();
 	 public RelationshipProperty relationshipProperty = new RelationshipProperty();

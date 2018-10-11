@@ -1,5 +1,7 @@
 package com.matchzone.indexer;
 
+//Model class for TargetNodeProperty
+
 public class TargetNodeProperty {
 private String profileId;
 

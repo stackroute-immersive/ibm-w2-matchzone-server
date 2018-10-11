@@ -16,7 +16,7 @@ import com.matchzone.model.PersonalInfo;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//Annotate the class with @EnableKafka and @Configuration
 @EnableKafka
 @Configuration
 public class ConsumerKafkaConfig 
@@ -40,7 +40,7 @@ public class ConsumerKafkaConfig
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
-//skill
+  //Kafka for PersonalInfo
     @Bean
     public ConsumerFactory<String, PersonalInfo> personalInfoConsumerFactory() {
         Map<String, Object> config = new HashMap<>();

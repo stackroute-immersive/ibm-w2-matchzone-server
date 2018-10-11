@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.matchzone.model.PersonalInfo;
 
-
+//Annotate the class with @Service
 @Service
 public class KafkaConsumerListener 
 {

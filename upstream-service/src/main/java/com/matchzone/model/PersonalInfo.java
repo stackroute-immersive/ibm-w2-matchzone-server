@@ -2,6 +2,7 @@ package com.matchzone.model;
 
 import java.util.Date;
 
+//Model class for PersonalInfo 
 public class PersonalInfo {
 
 	private String profileId;

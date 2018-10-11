@@ -14,7 +14,7 @@ const httpOptions = {
 export class SearchService {
   query:string;
   constructor(private http: HttpClient) { }
-  private searchUrl: string = "http://localhost:8095";
+  private searchUrl: string = "http://localhost:8084";
    postQuery(query){
      this.query=query;
      console.log(query);

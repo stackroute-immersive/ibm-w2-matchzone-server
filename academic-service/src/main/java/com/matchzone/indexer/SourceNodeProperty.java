@@ -1,5 +1,7 @@
 package com.matchzone.indexer;
 
+//Model class for SourceNodeProperty
+
 public class SourceNodeProperty {
 	private String secondaryPercentage;
 	private String higherPercentage;

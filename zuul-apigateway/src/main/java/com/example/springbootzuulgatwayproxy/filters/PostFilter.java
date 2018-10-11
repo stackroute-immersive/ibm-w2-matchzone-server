@@ -4,6 +4,9 @@ import com.netflix.zuul.ZuulFilter;
 
 public class PostFilter extends ZuulFilter {
 
+	/*All methods of PostFilter are overriden and implemented
+	 * */
+
   @Override
   public String filterType() {
     return "post";

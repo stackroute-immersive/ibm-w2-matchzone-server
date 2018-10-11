@@ -19,11 +19,13 @@ import com.matchzone.model.Skills;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annoatate the class with @EnableKafka and @Configuration
+
 @EnableKafka
 @Configuration
 public class KafkaConfiguration {
 
-    // AcademicDetails
+    // kafka consumer for AcademicDetails
     @Bean
     public ConsumerFactory<String, AcademicDetails> academicDetailsConsumerFactory() 
     {
@@ -45,7 +47,7 @@ public class KafkaConfiguration {
         return factory;
     }
     
-    // Certification
+    // kafka consumer for Certification
     @Bean
     public ConsumerFactory<String, Certification> certificationConsumerFactory() 
     {
@@ -67,7 +69,7 @@ public class KafkaConfiguration {
         return factory;
     }    
     
-    // Location
+    // kafka consumer for Location
     @Bean
     public ConsumerFactory<String, Location> locationConsumerFactory() 
     {
@@ -89,7 +91,7 @@ public class KafkaConfiguration {
         return factory;
     } 
     
-    // PersonalInfo
+    // kafka consumer for PersonalInfo
     @Bean
     public ConsumerFactory<String, PersonalInfo> personalinfoConsumerFactory() 
     {
@@ -111,7 +113,7 @@ public class KafkaConfiguration {
         return factory;
     }    
     
-    // Project
+    // kafka consumer for Project
     @Bean
     public ConsumerFactory<String, Project> projectConsumerFactory() 
     {
@@ -133,7 +135,7 @@ public class KafkaConfiguration {
         return factory;
     }   
     
-    // Skills
+    // kafka consumer for Skills
     @Bean
     public ConsumerFactory<String, Skills> skillsConsumerFactory() 
     {

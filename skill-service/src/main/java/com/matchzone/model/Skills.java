@@ -2,9 +2,12 @@ package com.matchzone.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+//Annotate this class with @Document
 @Document
 public class Skills {
 
+	//Model class for Skills with appropriate fields
+	
 	private String iTSkills;
 	private String version;
 	private String level;

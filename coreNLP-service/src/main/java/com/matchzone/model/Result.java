@@ -2,6 +2,8 @@ package com.matchzone.model;
 
 import java.util.List;
 
+//Model class for Result with various fields
+
 public class Result {
 
     private String profileId;

@@ -19,9 +19,12 @@ import com.matchzone.indexer.Indexer;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annotate the class with @Configuration
+
 @Configuration
 public class KakfaProducerConfiguration {
 	
+//Kafka for Indexer
 	@Bean
 	public ProducerFactory<String, Indexer> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
@@ -33,6 +36,7 @@ public class KakfaProducerConfiguration {
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 	
+//Kafka for Index
 	@Bean
 	public ProducerFactory<String, Index> producerFactoryIndex() {
 		Map<String, Object> config = new HashMap<>();
@@ -44,6 +48,7 @@ public class KakfaProducerConfiguration {
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 
+//Kafka for Location
 	@Bean
 	public ProducerFactory<String, Location> producerFactoryskill() {
 		Map<String, Object> config = new HashMap<>();

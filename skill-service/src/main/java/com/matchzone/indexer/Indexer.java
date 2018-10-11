@@ -1,5 +1,7 @@
 package com.matchzone.indexer;
 
+//Model class for Indexer with various fields
+
 public class Indexer {
 private String sourceNodetype;	
 private SourceNodeProperty sourcenodeproperty;

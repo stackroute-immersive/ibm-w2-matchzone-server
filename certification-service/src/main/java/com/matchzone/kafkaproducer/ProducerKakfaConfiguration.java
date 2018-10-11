@@ -15,10 +15,14 @@ import com.matchzone.model.Certification;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annotate the class with @Configuration
+
 @Configuration
 public class ProducerKakfaConfiguration 
 {
 
+	//kafka producer for Certification
+	
     @Bean
     public ProducerFactory<String, Certification> producerFactory() 
     {

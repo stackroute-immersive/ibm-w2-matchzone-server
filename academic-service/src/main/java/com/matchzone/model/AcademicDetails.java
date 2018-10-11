@@ -1,5 +1,8 @@
 package com.matchzone.model;
 
+
+//Model class for AcademicDetails with various fields
+
 public class AcademicDetails 
 {
 

@@ -17,13 +17,15 @@ import com.matchzone.model.Certification;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annotate the class with @EnableKafka and @Configuration
+
 @EnableKafka
 @Configuration
 public class ConsumerKafkaConfig 
 
 {
 
-//certification
+// kafka consumer for certification
     @Bean
     public ConsumerFactory<String, Certification> certiConsumerFactory() {
         Map<String, Object> config = new HashMap<>();

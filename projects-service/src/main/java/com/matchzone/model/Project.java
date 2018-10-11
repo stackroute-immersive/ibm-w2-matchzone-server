@@ -1,5 +1,7 @@
 package com.matchzone.model;
 
+//Model class for Project with various fields
+
 public class Project {
 
 	private String userName;

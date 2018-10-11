@@ -1,5 +1,7 @@
 package com.matchzone.model;
 
+//Model class for PersonalInfo with various fields
+
 import java.util.Date;
 
 public class PersonalInfo {

@@ -16,6 +16,7 @@ import com.matchzone.model.PersonalInfo;
 import com.matchzone.model.Project;
 import com.matchzone.model.Skills;
 
+//Mark this class with @RestController
 @CrossOrigin("*")
 @RestController
 public class UpstreamServiceController {
@@ -48,6 +49,9 @@ public class UpstreamServiceController {
 		this.skillsKafkaTemplate = skillsKafkaTemplate;
 	}
 
+	//Various methods for producing details of user in the kafka
+	
+	//for registering Academic details
 	@PostMapping("api/v1/acad")
 	public ResponseEntity<?> registerAcademicDetails(@RequestBody AcademicDetails academicDetails) {
 		ResponseEntity<?> responseEntity;
@@ -59,7 +63,7 @@ public class UpstreamServiceController {
 		}
 		return responseEntity;
 	}
-
+	//for registering Certification details
 	@PostMapping("api/v1/certi")
 	public ResponseEntity<?> registerCertification(@RequestBody Certification certification) {
 		ResponseEntity<?> responseEntity;
@@ -71,7 +75,8 @@ public class UpstreamServiceController {
 		}
 		return responseEntity;
 	}
-
+	
+	//for registering Location details
 	@PostMapping("api/v1/loc")
 	public ResponseEntity<?> registerLocation(@RequestBody Location location) {
 		ResponseEntity<?> responseEntity;
@@ -84,6 +89,7 @@ public class UpstreamServiceController {
 		return responseEntity;
 	}
 
+	//for registering Personal details
 	@PostMapping("api/v1/person")
 	public ResponseEntity<?> registerPersonalInfo(@RequestBody PersonalInfo personalInfo) {
 		ResponseEntity<?> responseEntity;
@@ -96,6 +102,7 @@ public class UpstreamServiceController {
 		return responseEntity;
 	}
 
+	//for registering Project details
 	@PostMapping("api/v1/proj")
 	public ResponseEntity<?> registerProject(@RequestBody Project project) {
 		ResponseEntity<?> responseEntity;
@@ -108,6 +115,7 @@ public class UpstreamServiceController {
 		return responseEntity;
 	}
 
+	//for registering Skills details
 	@PostMapping("api/v1/skills")
 	public ResponseEntity<?> registerSkills(@RequestBody Skills skills) {
 		ResponseEntity<?> responseEntity;

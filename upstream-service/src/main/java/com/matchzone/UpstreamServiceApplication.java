@@ -3,7 +3,8 @@ package com.matchzone;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-@EnableEurekaClient
+//Annotate this class with @SpringBootApplication
+@EnableEurekaClient // for eureka client to discover services
 @SpringBootApplication
 public class UpstreamServiceApplication {
 

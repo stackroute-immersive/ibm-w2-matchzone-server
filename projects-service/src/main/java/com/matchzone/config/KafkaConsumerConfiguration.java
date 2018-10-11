@@ -15,7 +15,7 @@ import com.matchzone.model.Project;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//Annotate the class with @EnableKafka and @Configuration 
 @EnableKafka 
 @Configuration
 public class KafkaConsumerConfiguration {

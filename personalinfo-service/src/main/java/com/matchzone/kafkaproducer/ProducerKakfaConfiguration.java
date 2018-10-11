@@ -15,10 +15,12 @@ import com.matchzone.model.PersonalInfo;
 import java.util.HashMap;
 import java.util.Map;
 
+//Annotate the class with @Configuration
+
 @Configuration
 public class ProducerKakfaConfiguration 
 {
-
+//Kafka producer for PersonalInfo
     @Bean
     public ProducerFactory<String, PersonalInfo> producerFactory() {
         Map<String, Object> config = new HashMap<>();

@@ -8,7 +8,9 @@ import javax.persistence.Id;
 @Entity
 public class User 
 {
-	
+	/*Marking userEmail as @Id, as an identifier for the row
+	 * */
+	//The @Id annotation indicates the member field below is the primary key of current entity. 
 	@Id
 	private String userEmail;
 	private String userPassword;

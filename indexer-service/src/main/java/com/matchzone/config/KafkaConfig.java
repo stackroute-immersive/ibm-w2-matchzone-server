@@ -19,6 +19,7 @@ import com.matchzone.model.ProjectIndex;
 import com.matchzone.model.QualifiactionIndex;
 import com.matchzone.model.SkillsIndex;
 
+//Annotate the class with @EnableKafka and @Configuration
 @EnableKafka
 @Configuration
 public class KafkaConfig {
@@ -43,7 +44,9 @@ public class KafkaConfig {
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
-//skill
+    
+  //Kafka consumer for skill
+    
     @Bean
     public ConsumerFactory<String, SkillsIndex> skillConsumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -63,7 +66,7 @@ public class KafkaConfig {
         return factory;
     }
 	
-//location
+  //Kafka consumer for location
     @Bean
     public ConsumerFactory<String, LocationIndex> locationConsumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -83,7 +86,7 @@ public class KafkaConfig {
         return factory;
     }
     
-  //certification
+  //Kafka consumer for certification
     @Bean
     public ConsumerFactory<String, CertificationIndex> certiConsumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -105,7 +108,7 @@ public class KafkaConfig {
     
     
     
-  //Project
+  //Kafka consumer for Project
     @Bean
     public ConsumerFactory<String, ProjectIndex> projectConsumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -126,7 +129,7 @@ public class KafkaConfig {
     }
     
     
-    //Qualification
+  //Kafka consumer for Qualification
     @Bean
     public ConsumerFactory<String, QualifiactionIndex> qualConsumerFactory() {
         Map<String, Object> config = new HashMap<>();

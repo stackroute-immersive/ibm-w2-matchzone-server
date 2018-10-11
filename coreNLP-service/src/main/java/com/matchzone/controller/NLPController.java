@@ -23,18 +23,27 @@ import com.matchzone.service.Tokenization;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 
+//Annotate this class with @RestController
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1")
 
 public class NLPController {
-    
+	
+    //Tokenization is the process of spliting the sentence into smaller tokens
+	
     public  Tokenization tokenization =new Tokenization();
     List<String> tokenString = new ArrayList<String>();
     Scanner sc;
     Tagging tagging=new Tagging();
     Search search =new Search();
     RestTemplate restTemplate=new RestTemplate();
+    
+    /*
+	 * Get method for search and tokenizing the sentence with a mapping "/search/{search}".
+	 * with stop-words, skills, organization and location
+	 */
     
     @GetMapping("/search/{search}")
     public ResponseEntity<?> breakString(@PathVariable("search") String string)throws FileNotFoundException{

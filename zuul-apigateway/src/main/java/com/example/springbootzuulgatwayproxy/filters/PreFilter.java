@@ -6,6 +6,9 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
 public class PreFilter extends ZuulFilter {
+	
+	/*All methods of PreFilter are overriden and implemented
+	 * */
 
   @Override
   public String filterType() {

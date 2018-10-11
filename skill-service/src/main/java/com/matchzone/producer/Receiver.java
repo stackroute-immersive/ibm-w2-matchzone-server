@@ -11,12 +11,14 @@ import com.matchzone.indexer.SourceNodeProperty;
 import com.matchzone.indexer.TargetNodeProperty;
 import com.matchzone.model.Skills;
 
+//Annotate this class with @Service
+
 @SuppressWarnings("unused")
 @Service
 public class Receiver {
+	//Autowire the Producer class and Indexer classes
 	@Autowired
 	private Producer producer;
-
 	public Indexer skillIndexer = new Indexer();
 	public TargetNodeProperty targetNodeProperty = new TargetNodeProperty();
 	public RelationshipProperty relationshipProperty = new RelationshipProperty();

@@ -12,13 +12,15 @@ import com.matchzone.indexer.TargetNodeProperty;
 import com.matchzone.model.Project;
 
 
-
+//Annotate this class with @Service
 @SuppressWarnings("unused")
 @Service
 public class Receiver {
 @Autowired
-	private Producer producer;
 
+//Autowire the Producer class and Indexer classes
+
+	private Producer producer;
 	public Indexer studiedAtIndexer = new Indexer();
 	public TargetNodeProperty targetNodeProperty = new TargetNodeProperty();
 	 public RelationshipProperty relationshipProperty = new RelationshipProperty();

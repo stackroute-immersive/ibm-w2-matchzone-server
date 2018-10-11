@@ -1,4 +1,7 @@
 package com.matchzone.indexer;
+
+//Model class for SorceNodeProperty
+
 public class SourceNodeProperty {
 private String projectTitle;
 

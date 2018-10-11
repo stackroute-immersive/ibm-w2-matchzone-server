@@ -4,6 +4,9 @@ import com.netflix.zuul.ZuulFilter;
 
 public class RouteFilter extends ZuulFilter {
 
+	/*All methods of RouteFilter are overriden and implemented
+	 * */
+
   @Override
   public String filterType() {
     return "route";

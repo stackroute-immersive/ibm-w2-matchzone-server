@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
-
+//Annotate this class with @SpringBootApplication 
 @SpringBootApplication
 @EnableEurekaClient // for eureka server to find this application
 @ComponentScan(basePackages="com.matchzone")

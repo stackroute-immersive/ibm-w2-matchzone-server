@@ -1,5 +1,6 @@
 package com.matchzone.model;
 
+//Model class for Project
 public class Project {
 
 	private String profileId;
