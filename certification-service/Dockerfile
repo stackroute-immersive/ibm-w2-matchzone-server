@@ -1,7 +1,11 @@
-FROM java:8-jre
+FROM java:8
 
-ADD ./target/certification-service-1.1.0.jar /usr/src/certification-service-1.1.0.jar
+RUN mkdir /src
 
-WORKDIR usr/src
+WORKDIR /src
 
-ENTRYPOINT ["java","-jar", "certification-service-1.1.0.jar"]
+COPY target/certification-service-1.1.0.jar /src/certification-service-1.1.0.jar
+
+RUN sh -c 'touch /src/certification-service-1.1.0.jar'
+
+ENTRYPOINT ["java","-jar","/src/certification-service-1.1.0.jar"]

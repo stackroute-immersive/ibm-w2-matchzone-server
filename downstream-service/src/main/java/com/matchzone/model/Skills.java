@@ -3,18 +3,11 @@ package com.matchzone.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//Annotate the class with @Document
-
 @Document
-
-//Model class for Skills with various fields
-
 public class Skills {
 
-	//@Id annotation to specify the primary key  
-
 	@Id
-	private String profileId;
+	private String userName;
 	private String iTSkills;
 	private String version;
 	private String level;
@@ -24,21 +17,21 @@ public class Skills {
 		super();
 	}
 
-	public Skills(String profileId, String iTSkills, String version, String level, String lastUsed) {
+	public Skills(String userName, String iTSkills, String version, String level, String lastUsed) {
 		super();
-		this.profileId = profileId;
+		this.userName = userName;
 		this.iTSkills = iTSkills;
 		this.version = version;
 		this.level = level;
 		this.lastUsed = lastUsed;
 	}
 
-	public String getProfileId() {
-		return profileId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setProfileId(String profileId) {
-		this.profileId = profileId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getiTSkills() {

@@ -16,9 +16,9 @@ import com.matchzone.repository.PersonalInfoRepository;
 import com.matchzone.repository.ProjectRepository;
 import com.matchzone.repository.SkillsRepository;
 
+//Mark DownstreamServiceImpl with @Service annotation
 @Service
-public class DownstreamServiceImpl implements DownstreamService
-{
+public class DownstreamServiceImpl implements DownstreamService {
 
 	private AcademicDetailsRepository academicDetailsRepository;
 	private CertificationRepository certificationRepository;
@@ -26,13 +26,12 @@ public class DownstreamServiceImpl implements DownstreamService
 	private PersonalInfoRepository personalInfoRepository;
 	private ProjectRepository projectRepository;
 	private SkillsRepository skillsRepository;
-	
+
 	@Autowired
 	public DownstreamServiceImpl(AcademicDetailsRepository academicDetailsRepository,
 			CertificationRepository certificationRepository, LocationRepository locationRepository,
 			PersonalInfoRepository personalInfoRepository, ProjectRepository projectRepository,
-			SkillsRepository skillsRepository) 
-	{
+			SkillsRepository skillsRepository) {
 		super();
 		this.academicDetailsRepository = academicDetailsRepository;
 		this.certificationRepository = certificationRepository;
@@ -42,65 +41,64 @@ public class DownstreamServiceImpl implements DownstreamService
 		this.skillsRepository = skillsRepository;
 	}
 
+	//Overriden methods of DownstreamService interface
+	
 	@Override
-	public boolean createAcademicDetails(AcademicDetails academicDetails) 
-	{
-		if(academicDetailsRepository.insert(academicDetails) == null)
+	public boolean createAcademicDetails(AcademicDetails academicDetails) {
+		if (academicDetailsRepository.insert(academicDetails) == null)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean deleteAcademicDetails(String id) 
-	{
+	public boolean deleteAcademicDetails(String id) {
 		AcademicDetails academicDetails = academicDetailsRepository.findById(id).get();
-		if(academicDetails == null)
+		if (academicDetails == null)
 			return false;
 		academicDetailsRepository.delete(academicDetails);
 		return true;
 	}
 
 	@Override
-	public AcademicDetails updateAcademicDetails(AcademicDetails academicDetails, String id) 
-	{
+	public AcademicDetails updateAcademicDetails(AcademicDetails academicDetails, String id) {
 		AcademicDetails localAcademicDetails = academicDetailsRepository.findById(id).get();
-		
-		if(localAcademicDetails == null)
+
+		if (localAcademicDetails == null)
 			return null;
-		
-		if(academicDetails.getCourse() != null)
+
+		if (academicDetails.getCourse() != null)
 			localAcademicDetails.setCourse(academicDetails.getCourse());
-		
-		if(academicDetails.getEducation() != null)
+
+		if (academicDetails.getEducation() != null)
 			localAcademicDetails.setEducation(academicDetails.getEducation());
-		
-		if(academicDetails.getGradingSystem() != null)
+
+		if (academicDetails.getGradingSystem() != null)
 			localAcademicDetails.setGradingSystem(academicDetails.getGradingSystem());
-		
-		if(academicDetails.getHighDuration() != null)
+
+		if (academicDetails.getHighDuration() != null)
 			localAcademicDetails.setHighDuration(academicDetails.getHighDuration());
-		
-		if(academicDetails.getHigherSecondary() != null)
+
+		if (academicDetails.getHigherSecondary() != null)
 			localAcademicDetails.setHigherSecondary(academicDetails.getHigherSecondary());
-		
-		if(academicDetails.getHighLocation() != null)
+
+		if (academicDetails.getHighLocation() != null)
 			localAcademicDetails.setHighLocation(academicDetails.getHighLocation());
-		
-		if(academicDetails.getPassingYear() != null)
+
+		if (academicDetails.getPassingYear() != null)
 			localAcademicDetails.setPassingYear(academicDetails.getPassingYear());
-		
-		if(academicDetails.getSenDuration() != null)
+
+		if (academicDetails.getSenDuration() != null)
 			localAcademicDetails.setSenDuration(academicDetails.getSenDuration());
-		
-		if(academicDetails.getSenLocation() != null)
+
+		if (academicDetails.getSenLocation() != null)
 			localAcademicDetails.setSenLocation(academicDetails.getSenLocation());
-		
-		if(academicDetails.getSpecialisation() != null)
+
+		if (academicDetails.getSpecialisation() != null)
 			localAcademicDetails.setSpecialisation(academicDetails.getSpecialisation());
-		
-		if(academicDetails.getUniversityInstitute() != null)
+
+		if (academicDetails.getUniversityInstitute() != null)
 			localAcademicDetails.setUniversityInstitute(academicDetails.getUniversityInstitute());
-		
+
 		academicDetailsRepository.save(localAcademicDetails);
 		return localAcademicDetails;
 	}
@@ -111,47 +109,44 @@ public class DownstreamServiceImpl implements DownstreamService
 	}
 
 	@Override
-	public boolean createCertification(Certification certification) 
-	{
-		if(certificationRepository.insert(certification) == null)
+	public boolean createCertification(Certification certification) {
+		if (certificationRepository.insert(certification) == null)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean deleteCertification(String id) 
-	{
+	public boolean deleteCertification(String id) {
 		Certification certification = certificationRepository.findById(id).get();
-		if(certification == null)
+		if (certification == null)
 			return false;
 		certificationRepository.delete(certification);
 		return true;
 	}
 
 	@Override
-	public Certification updateCertification(Certification certification, String id) 
-	{
+	public Certification updateCertification(Certification certification, String id) {
 		Certification localCertification = certificationRepository.findById(id).get();
-		
-		if(localCertification == null)
+
+		if (localCertification == null)
 			return null;
-		
-		if(certification.getCertificationAuthority() != null)
+
+		if (certification.getCertificationAuthority() != null)
 			localCertification.setCertificationAuthority(certification.getCertificationAuthority());
-		
-		if(certification.getCertificationName() != null)
+
+		if (certification.getCertificationName() != null)
 			localCertification.setCertificationName(certification.getCertificationName());
-		
-		if(certification.getCertificationURL() != null)
+
+		if (certification.getCertificationURL() != null)
 			localCertification.setCertificationURL(certification.getCertificationURL());
-		
-		if(certification.getDurationFrom() != null)
+
+		if (certification.getDurationFrom() != null)
 			localCertification.setDurationFrom(certification.getDurationFrom());
-		
-		if(certification.getDurationTo() != null)
+
+		if (certification.getDurationTo() != null)
 			localCertification.setDurationTo(certification.getDurationTo());
-		
-		if(certification.getLicenseNumber() != null)
+
+		if (certification.getLicenseNumber() != null)
 			localCertification.setLicenseNumber(certification.getLicenseNumber());
 
 		certificationRepository.save(localCertification);
@@ -164,40 +159,37 @@ public class DownstreamServiceImpl implements DownstreamService
 	}
 
 	@Override
-	public boolean createLocation(Location location) 
-	{
-		if(locationRepository.insert(location) == null)
+	public boolean createLocation(Location location) {
+		if (locationRepository.insert(location) == null)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean deleteLocation(String id) 
-	{
+	public boolean deleteLocation(String id) {
 		Location location = locationRepository.findById(id).get();
-		if(location == null)
+		if (location == null)
 			return false;
 		locationRepository.delete(location);
 		return true;
 	}
 
 	@Override
-	public Location updateLocation(Location location, String id) 
-	{
+	public Location updateLocation(Location location, String id) {
 		Location localLocation = locationRepository.findById(id).get();
-		
-		if(localLocation == null)
+
+		if (localLocation == null)
 			return null;
-		
-		if(location.getCity() != null)
+
+		if (location.getCity() != null)
 			localLocation.setCity(location.getCity());
-		
-		if(location.getCountry() != null)
+
+		if (location.getCountry() != null)
 			localLocation.setCountry(location.getCountry());
-		
-		if(location.getState() != null)
+
+		if (location.getState() != null)
 			localLocation.setState(location.getState());
-		
+
 		locationRepository.save(localLocation);
 		return localLocation;
 	}
@@ -208,73 +200,70 @@ public class DownstreamServiceImpl implements DownstreamService
 	}
 
 	@Override
-	public boolean createPersonalInfo(PersonalInfo personalinfo) 
-	{
-		if(personalInfoRepository.insert(personalinfo) == null)
+	public boolean createPersonalInfo(PersonalInfo personalinfo) {
+		if (personalInfoRepository.insert(personalinfo) == null)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean deletePersonalInfo(String id) 
-	{
+	public boolean deletePersonalInfo(String id) {
 		PersonalInfo personalInfo = personalInfoRepository.findById(id).get();
-		if(personalInfo == null)
+		if (personalInfo == null)
 			return false;
 		personalInfoRepository.delete(personalInfo);
 		return true;
 	}
 
 	@Override
-	public PersonalInfo updatePersonalInfo(PersonalInfo personalinfo, String id) 
-	{
+	public PersonalInfo updatePersonalInfo(PersonalInfo personalinfo, String id) {
 		PersonalInfo localPersonalInfo = personalInfoRepository.findById(id).get();
-		
-		if(localPersonalInfo == null)
+
+		if (localPersonalInfo == null)
 			return null;
-		
-		if(personalinfo.getAge() != null)
+
+		if (personalinfo.getAge() != null)
 			localPersonalInfo.setAge(personalinfo.getAge());
-		
-		if(personalinfo.getBloodGroup() != null)
+
+		if (personalinfo.getBloodGroup() != null)
 			localPersonalInfo.setBloodGroup(personalinfo.getBloodGroup());
-		
-		if(personalinfo.getDateOfBirth() != null)
+
+		if (personalinfo.getDateOfBirth() != null)
 			localPersonalInfo.setDateOfBirth(personalinfo.getDateOfBirth());
-		
-		if(personalinfo.getGender() != null)
+
+		if (personalinfo.getGender() != null)
 			localPersonalInfo.setGender(personalinfo.getGender());
-		
-		if(personalinfo.getGitHubUrl() != null)
+
+		if (personalinfo.getGitHubUrl() != null)
 			localPersonalInfo.setGitHubUrl(personalinfo.getGitHubUrl());
-		
-		if(personalinfo.getHomeTown() != null)
+
+		if (personalinfo.getHomeTown() != null)
 			localPersonalInfo.setHomeTown(personalinfo.getHomeTown());
-		
-		if(personalinfo.getLanguages() != null)
+
+		if (personalinfo.getLanguages() != null)
 			localPersonalInfo.setLanguages(personalinfo.getLanguages());
-		
-		if(personalinfo.getLinkedinUrl() != null)
+
+		if (personalinfo.getLinkedinUrl() != null)
 			localPersonalInfo.setLinkedinUrl(personalinfo.getLinkedinUrl());
-		
-		if(personalinfo.getMaritalStatus() != null)
+
+		if (personalinfo.getMaritalStatus() != null)
 			localPersonalInfo.setMaritalStatus(personalinfo.getMaritalStatus());
-		
-		if(personalinfo.getPermanentAddress() != null)
+
+		if (personalinfo.getPermanentAddress() != null)
 			localPersonalInfo.setPermanentAddress(personalinfo.getPermanentAddress());
-		
-		if(personalinfo.getPinCode() != null)
+
+		if (personalinfo.getPinCode() != null)
 			localPersonalInfo.setPinCode(personalinfo.getPinCode());
-		
-		if(personalinfo.getUserId() != null)
+
+		if (personalinfo.getUserId() != null)
 			localPersonalInfo.setUserId(personalinfo.getUserId());
-		
-		if(personalinfo.getUserName() != null)
+
+		if (personalinfo.getUserName() != null)
 			localPersonalInfo.setUserName(personalinfo.getUserName());
-		
-		if(personalinfo.getEmailId() != null)
+
+		if (personalinfo.getEmailId() != null)
 			localPersonalInfo.setEmailId(personalinfo.getEmailId());
-		
+
 		personalInfoRepository.save(localPersonalInfo);
 		return localPersonalInfo;
 	}
@@ -287,67 +276,64 @@ public class DownstreamServiceImpl implements DownstreamService
 	}
 
 	@Override
-	public boolean createProject(Project project) 
-	{	
-		if(projectRepository.insert(project) == null)
+	public boolean createProject(Project project) {
+		if (projectRepository.insert(project) == null)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean deleteProject(String id) 
-	{
+	public boolean deleteProject(String id) {
 		Project project = projectRepository.findById(id).get();
-		if(project == null)
+		if (project == null)
 			return false;
 		projectRepository.delete(project);
 		return true;
 	}
 
 	@Override
-	public Project updateProject(Project project, String id) 
-	{
+	public Project updateProject(Project project, String id) {
 		Project localProject = projectRepository.findById(id).get();
-		
-		if(localProject == null)
+
+		if (localProject == null)
 			return null;
-		
-		if(project.getClient() != null)
+
+		if (project.getClient() != null)
 			localProject.setClient(project.getClient());
-		
-		if(project.getDuration() != null)
+
+		if (project.getDuration() != null)
 			localProject.setDuration(project.getDuration());
-		
-		if(project.getProjectAt() != null)
+
+		if (project.getProjectAt() != null)
 			localProject.setProjectAt(project.getProjectAt());
-		
-		if(project.getProjectDetails() != null)
+
+		if (project.getProjectDetails() != null)
 			localProject.setProjectDetails(project.getProjectDetails());
-		
-		if(project.getProjectLocation() != null)
+
+		if (project.getProjectLocation() != null)
 			localProject.setProjectLocation(project.getProjectLocation());
-		
-		if(project.getProjectMembers() != null)
+
+		if (project.getProjectMembers() != null)
 			localProject.setProjectMembers(project.getProjectMembers());
-		
-		if(project.getProjectStatus() != null)
+
+		if (project.getProjectStatus() != null)
 			localProject.setProjectStatus(project.getProjectStatus());
-		
-		if(project.getProjectTitle() != null)
+
+		if (project.getProjectTitle() != null)
 			localProject.setProjectTitle(project.getProjectTitle());
-		
-		if(project.getProjectURL() != null)
+
+		if (project.getProjectURL() != null)
 			localProject.setProjectURL(project.getProjectURL());
-		
-		if(project.getRole() != null)
+
+		if (project.getRole() != null)
 			localProject.setRole(project.getRole());
-		
-		if(project.getSkills() != null)
+
+		if (project.getSkills() != null)
 			localProject.setSkills(project.getSkills());
-		
-		if(project.getTeamSize() != null)
+
+		if (project.getTeamSize() != null)
 			localProject.setTeamSize(project.getTeamSize());
-		
+
 		projectRepository.save(localProject);
 		return localProject;
 	}
@@ -358,43 +344,40 @@ public class DownstreamServiceImpl implements DownstreamService
 	}
 
 	@Override
-	public boolean createSkills(Skills skills)
-	{
-		if(skillsRepository.insert(skills) == null)
+	public boolean createSkills(Skills skills) {
+		if (skillsRepository.insert(skills) == null)
 			return false;
 		return true;
 	}
 
 	@Override
-	public boolean deleteSkills(String id) 
-	{
+	public boolean deleteSkills(String id) {
 		Skills skills = skillsRepository.findById(id).get();
-		if(skills == null)
+		if (skills == null)
 			return false;
 		skillsRepository.delete(skills);
 		return true;
 	}
 
 	@Override
-	public Skills updateSkills(Skills skills, String id) 
-	{
+	public Skills updateSkills(Skills skills, String id) {
 		Skills localSkills = skillsRepository.findById(id).get();
-		
-		if(localSkills == null)
+
+		if (localSkills == null)
 			return null;
-		
-		if(skills.getiTSkills() != null)
+
+		if (skills.getiTSkills() != null)
 			localSkills.setiTSkills(skills.getiTSkills());
-		
-		if(skills.getLastUsed() != null)
+
+		if (skills.getLastUsed() != null)
 			localSkills.setLastUsed(skills.getLastUsed());
-		
-		if(skills.getLevel() != null)
+
+		if (skills.getLevel() != null)
 			localSkills.setLevel(skills.getLevel());
-		
-		if(skills.getVersion() != null)
+
+		if (skills.getVersion() != null)
 			localSkills.setVersion(skills.getVersion());
-	
+
 		skillsRepository.save(localSkills);
 		return localSkills;
 	}

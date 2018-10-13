@@ -19,142 +19,129 @@ import com.matchzone.model.Skills;
 import java.util.HashMap;
 import java.util.Map;
 
-//Annoatate the class with @EnableKafka and @Configuration
-
+//Kafka Consumer Configuration class
 @EnableKafka
 @Configuration
 public class KafkaConfiguration {
 
-    // kafka consumer for AcademicDetails
-    @Bean
-    public ConsumerFactory<String, AcademicDetails> academicDetailsConsumerFactory() 
-    {
-        Map<String, Object> config = new HashMap<>();
+	// AcademicDetails
+	@Bean
+	public ConsumerFactory<String, AcademicDetails> academicDetailsConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "acad_json");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(AcademicDetails.class));
-    }
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "acad_json");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(AcademicDetails.class));
+	}
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, AcademicDetails> kafkaListenerContainerFactory() 
-    {
-        ConcurrentKafkaListenerContainerFactory<String, AcademicDetails> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(academicDetailsConsumerFactory());
-        return factory;
-    }
-    
-    // kafka consumer for Certification
-    @Bean
-    public ConsumerFactory<String, Certification> certificationConsumerFactory() 
-    {
-        Map<String, Object> config = new HashMap<>();
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, AcademicDetails> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, AcademicDetails> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(academicDetailsConsumerFactory());
+		return factory;
+	}
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "certi_json");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(Certification.class));
-    }
+	// Certification
+	@Bean
+	public ConsumerFactory<String, Certification> certificationConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Certification> certiKafkaListenerContainerFactory() 
-    {
-        ConcurrentKafkaListenerContainerFactory<String, Certification> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(certificationConsumerFactory());
-        return factory;
-    }    
-    
-    // kafka consumer for Location
-    @Bean
-    public ConsumerFactory<String, Location> locationConsumerFactory() 
-    {
-        Map<String, Object> config = new HashMap<>();
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "certi_json");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(Certification.class));
+	}
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "loc_json");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(Location.class));
-    }
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Certification> certiKafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Certification> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(certificationConsumerFactory());
+		return factory;
+	}
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Location> locKafkaListenerContainerFactory() 
-    {
-        ConcurrentKafkaListenerContainerFactory<String, Location> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(locationConsumerFactory());
-        return factory;
-    } 
-    
-    // kafka consumer for PersonalInfo
-    @Bean
-    public ConsumerFactory<String, PersonalInfo> personalinfoConsumerFactory() 
-    {
-        Map<String, Object> config = new HashMap<>();
+	// Location
+	@Bean
+	public ConsumerFactory<String, Location> locationConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "person_json");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(PersonalInfo.class));
-    }
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "loc_json");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(Location.class));
+	}
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, PersonalInfo> personKafkaListenerContainerFactory() 
-    {
-        ConcurrentKafkaListenerContainerFactory<String, PersonalInfo> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(personalinfoConsumerFactory());
-        return factory;
-    }    
-    
-    // kafka consumer for Project
-    @Bean
-    public ConsumerFactory<String, Project> projectConsumerFactory() 
-    {
-        Map<String, Object> config = new HashMap<>();
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Location> locKafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Location> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(locationConsumerFactory());
+		return factory;
+	}
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "proj_json");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(Project.class));
-    }
+	// PersonalInfo
+	@Bean
+	public ConsumerFactory<String, PersonalInfo> personalinfoConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Project> projectKafkaListenerContainerFactory() 
-    {
-        ConcurrentKafkaListenerContainerFactory<String, Project> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(projectConsumerFactory());
-        return factory;
-    }   
-    
-    // kafka consumer for Skills
-    @Bean
-    public ConsumerFactory<String, Skills> skillsConsumerFactory() 
-    {
-        Map<String, Object> config = new HashMap<>();
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "person_json");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(PersonalInfo.class));
+	}
 
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "skill_json");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-                new JsonDeserializer<>(Skills.class));
-    }
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, PersonalInfo> personKafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, PersonalInfo> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(personalinfoConsumerFactory());
+		return factory;
+	}
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Skills> skillsKafkaListenerContainerFactory() 
-    {
-        ConcurrentKafkaListenerContainerFactory<String, Skills> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(skillsConsumerFactory());
-        return factory;
-    }
+	// Project
+	@Bean
+	public ConsumerFactory<String, Project> projectConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
+
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "proj_json");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(Project.class));
+	}
+
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Project> projectKafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Project> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(projectConsumerFactory());
+		return factory;
+	}
+
+	// Skills
+	@Bean
+	public ConsumerFactory<String, Skills> skillsConsumerFactory() {
+		Map<String, Object> config = new HashMap<>();
+
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "skill_json");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(Skills.class));
+	}
+
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Skills> skillsKafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Skills> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(skillsConsumerFactory());
+		return factory;
+	}
 
 }

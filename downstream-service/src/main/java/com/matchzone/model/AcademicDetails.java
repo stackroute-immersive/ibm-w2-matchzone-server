@@ -3,19 +3,12 @@ package com.matchzone.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//Annotate the class with @Document
-
 @Document
-
-//Model class for AcademicDetails with various fields
-
 public class AcademicDetails 
 {
 
-	//@Id annotation to specify the primary key  
-	
 	@Id
-	private String profileId;
+	private String userName;
 	private String education;
 	private String course;
 	private String specialisation;
@@ -29,12 +22,12 @@ public class AcademicDetails
 	private Integer senDuration;
 	private String senLocation;
 
-	public String getProfileId() {
-		return profileId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setProfileId(String profileId) {
-		this.profileId = profileId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	public String getEducation() {
@@ -133,11 +126,11 @@ public class AcademicDetails
 		this.senLocation = senLocation;
 	}
 
-	public AcademicDetails(String profileId, String education, String course, String specialisation, String universityInstitute,
+	public AcademicDetails(String userName, String education, String course, String specialisation, String universityInstitute,
 			Integer passingYear, String gradingSystem, String higherSecondary, Integer highDuration,
 			String highLocation, String seniorSecondary, Integer senDuration, String senLocation) {
 		super();
-		this.profileId = profileId;
+		this.userName = userName;
 		this.education = education;
 		this.course = course;
 		this.specialisation = specialisation;

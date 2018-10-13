@@ -1,7 +1,11 @@
-FROM java:8-jre
+FROM java:8
 
-ADD ./target/skill-service-1.1.0.jar /usr/src/skill-service-1.1.0.jar
+RUN mkdir /src
 
-WORKDIR usr/src
+WORKDIR /src
 
-ENTRYPOINT ["java","-jar", "skill-service-1.1.0.jar"]
+COPY target/skill-service-1.1.0.jar /src/skill-service-1.1.0.jar
+
+RUN sh -c 'touch /src/skill-service-1.1.0.jar'
+
+ENTRYPOINT ["java","-jar","/src/skill-service-1.1.0.jar"]

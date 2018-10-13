@@ -3,18 +3,11 @@ package com.matchzone.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//Annotate the class with @Document
-
 @Document
-
-//Model class for Certification with various fields
-
 public class Certification {
 
-	//@Id annotation to specify the primary key  
-
 	@Id
-	private String profileId;
+	private String userName;
 	private String certificationName;
 	private String certificationAuthority;
 	private String licenseNumber;
@@ -22,12 +15,12 @@ public class Certification {
 	private Integer durationTo;
 	private String certificationURL;
 
-	public String getProfileId() {
-		return profileId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setProfileId(String profileId) {
-		this.profileId = profileId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	public String getCertificationName() {
@@ -78,10 +71,10 @@ public class Certification {
 		this.certificationURL = certificationURL;
 	}
 
-	public Certification(String profileId, String certificationName, String certificationAuthority, String licenseNumber,
+	public Certification(String userName, String certificationName, String certificationAuthority, String licenseNumber,
 			Integer durationFrom, Integer durationTo, String certificationURL) {
 		super();
-		this.profileId = profileId;
+		this.userName = userName;
 		this.certificationName = certificationName;
 		this.certificationAuthority = certificationAuthority;
 		this.licenseNumber = licenseNumber;

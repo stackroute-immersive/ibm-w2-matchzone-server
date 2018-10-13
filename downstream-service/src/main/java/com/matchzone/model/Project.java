@@ -3,18 +3,11 @@ package com.matchzone.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//Annotate the class with @Document
-
 @Document
-
-//Model class for Project with various fields
-
 public class Project {
 
-	//@Id annotation to specify the primary key  
-
 	@Id
-	private String profileId;
+	private String userName;
 	private String projectTitle;
 	private String client;
 	private String projectStatus;
@@ -29,14 +22,14 @@ public class Project {
 	private String projectURL;
 
 	
-	public String getProfileId() 
+	public String getUserName() 
 	{
-		return profileId;
+		return userName;
 	}
 
-	public void setProfileId(String profileId) 
+	public void setUserName(String userName) 
 	{
-		this.profileId = profileId;
+		this.userName = userName;
 	}
 	
 	public String getProjectTitle() {
@@ -135,11 +128,11 @@ public class Project {
 		this.projectURL = projectURL;
 	}
 
-	public Project(String profileId, String projectTitle, String client, String projectStatus, Integer duration, String projectDetails,
+	public Project(String userName, String projectTitle, String client, String projectStatus, Integer duration, String projectDetails,
 			Integer projectMembers, String role, String projectLocation, String projectAt, Integer teamSize,
 			String skills, String projectURL) {
 		super();
-		this.profileId = profileId;
+		this.userName = userName;
 		this.projectTitle = projectTitle;
 		this.client = client;
 		this.projectStatus = projectStatus;

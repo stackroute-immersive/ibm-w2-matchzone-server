@@ -3,29 +3,22 @@ package com.matchzone.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//Annotate the class with @Document
-
 @Document
-
-//Model class for Location with various fields
-
 public class Location {
-	
-	//@Id annotation to specify the primary key  
 
 	@Id
-	private String profileId;
+	private String userName;
 	private String city;
 	private String state;
 	private String country;
 
 	
-	public String getProfileId() {
-		return profileId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setProfileId(String profileId) {
-		this.profileId = profileId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getCity() {
@@ -52,9 +45,9 @@ public class Location {
 		this.country = country;
 	}
 
-	public Location(String profileId, String city, String state, String country) {
+	public Location(String userName, String city, String state, String country) {
 		super();
-		this.profileId = profileId;
+		this.userName = userName;
 		this.city = city;
 		this.state = state;
 		this.country = country;

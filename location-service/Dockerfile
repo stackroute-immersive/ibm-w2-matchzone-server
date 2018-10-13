@@ -1,7 +1,11 @@
-FROM java:8-jre
+FROM java:8
 
-ADD ./target/location-service-1.1.0.jar /usr/src/location-service-1.1.0.jar
+RUN mkdir /src
 
-WORKDIR usr/src
+WORKDIR /src
 
-ENTRYPOINT ["java","-jar", "location-service-1.1.0.jar"]
+COPY target/location-service-1.1.0.jar /src/location-service-1.1.0.jar
+
+RUN sh -c 'touch /src/location-service-1.1.0.jar'
+
+ENTRYPOINT ["java","-jar","/src/location-service-1.1.0.jar"]

@@ -20,9 +20,6 @@ public class KafkaConsumer
 	@Autowired
 	private DownstreamService downstreamService;
 	
-	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
-	//**AcademicDetails**//
-	
 	@KafkaListener(topics = "acad_data", groupId="acad_json", containerFactory = "kafkaListenerContainerFactory")
 	public void saveAcademicDetails(@Payload AcademicDetails academicDetails){
 		downstreamService.createAcademicDetails(academicDetails);
@@ -37,9 +34,6 @@ public class KafkaConsumer
 //	public void updateAcademicDetails(@Payload AcademicDetails academicDetails){
 //		downstreamService.updateAcademicDetails(academicDetails, academicDetails.getProfileId());
 //	}
-	
-	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
-	//**Certification**//
 	
 	@KafkaListener(topics = "certi_data", groupId="certi_json", containerFactory = "certiKafkaListenerContainerFactory")
 	public void saveCertification(@Payload Certification certification){
@@ -56,9 +50,6 @@ public class KafkaConsumer
 //		downstreamService.updateCertification(certification, certification.getProfileId());
 //	}
 	
-	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
-	//**Location**//
-	
 	@KafkaListener(topics = "loc_data", groupId="loc_json", containerFactory = "locKafkaListenerContainerFactory")
 	public void saveLocation(@Payload Location location){
 		downstreamService.createLocation(location);
@@ -73,10 +64,6 @@ public class KafkaConsumer
 //	public void updateLocation(@Payload Location location){
 //		downstreamService.updateLocation(location, location.getProfileId());
 //	}
-	
-	
-	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
-	//**PersonalDetails*//
 	
 	@KafkaListener(topics = "person_data", groupId="person_json", containerFactory = "personKafkaListenerContainerFactory")
 	public void savePersonalInfo(@Payload PersonalInfo personalInfo){
@@ -93,10 +80,6 @@ public class KafkaConsumer
 //		downstreamService.updatePersonalInfo(personalInfo, personalInfo.getProfileId());
 //	}
 	
-	
-	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
-	//**Project**//
-	
 	@KafkaListener(topics = "proj_data", groupId="proj_json", containerFactory = "projectKafkaListenerContainerFactory")
 	public void saveProject(@Payload Project project){
 		downstreamService.createProject(project);
@@ -111,10 +94,6 @@ public class KafkaConsumer
 //	public void updateProject(@Payload Project project){
 //		downstreamService.updateProject(project, project.getProfileId());
 //	}
-	
-	
-	//this Annotation marks a method to be the target of a Kafka message listener on the specified topics
-	//**Skills**//
 	
 	@KafkaListener(topics = "skill_data", groupId="skill_json", containerFactory = "skillsKafkaListenerContainerFactory")
 	public void saveSkills(@Payload Skills skills){
