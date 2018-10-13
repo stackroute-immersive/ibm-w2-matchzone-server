@@ -249,6 +249,9 @@ services:
    depends_on:
      config-service:
        condition: service_healthy
+   depends_on:
+     coreNLP-service:
+       condition: service_healthy
    restart: always
    network_mode: "host"
    image: search-service
