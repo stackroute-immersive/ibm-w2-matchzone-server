@@ -114,11 +114,11 @@ public class NLPController {
         System.out.println(search);
 
         
-// 	String url="http://localhost:8095/searchengine";
-//         HttpHeaders headers=new HttpHeaders();
-//         HttpEntity<Search> entity=new HttpEntity<>(search,headers);
+	String url="";
+        HttpHeaders headers=new HttpHeaders();
+        HttpEntity<Search> entity=new HttpEntity<>(search,headers);
         
-//         return restTemplate.exchange(url, HttpMethod.POST,entity,String.class);
+        return restTemplate.exchange(url, HttpMethod.POST,entity,String.class);
             
 }
 }
