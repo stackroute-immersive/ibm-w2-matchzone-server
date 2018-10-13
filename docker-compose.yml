@@ -230,7 +230,7 @@ services:
      test: "exit 0"
 
  coreNLP-service:
-   build: coreNLP-service/
+   build: coreNLP-service
    depends_on:
      config-service:
        condition: service_healthy
