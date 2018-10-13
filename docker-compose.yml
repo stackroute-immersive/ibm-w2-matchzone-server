@@ -245,9 +245,10 @@ services:
    depends_on:
      eureka-server:
        condition: service_healthy
-   depends_on:
      config-service:
        condition: service_healthy
+     coreNLP-service:
+       condition: service_healthy  
    healthcheck:
      test: "exit 0"
 
@@ -255,9 +256,6 @@ services:
    build: search-service/
    depends_on:
      config-service:
-       condition: service_healthy
-   depends_on:
-     coreNLP-service:
        condition: service_healthy
    restart: always
    network_mode: "host"
