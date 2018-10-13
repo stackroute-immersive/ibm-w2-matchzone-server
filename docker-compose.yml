@@ -249,7 +249,7 @@ services:
      config-service:
        condition: service_healthy
    healthcheck:
-     test: "exit 0""
+     test: "exit 0"
 
  search-service:
    build: search-service/
