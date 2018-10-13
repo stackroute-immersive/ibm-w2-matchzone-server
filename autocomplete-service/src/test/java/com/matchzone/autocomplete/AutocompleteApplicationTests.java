@@ -1,16 +1,16 @@
-package com.matchzone.autocomplete;
+// package com.matchzone.autocomplete;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+// import org.junit.Test;
+// import org.junit.runner.RunWith;
+// import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class AutocompleteApplicationTests {
+// @RunWith(SpringRunner.class)
+// @SpringBootTest
+// public class AutocompleteApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+// 	@Test
+// 	public void contextLoads() {
+// 	}
 
-}
+// }
