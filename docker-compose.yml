@@ -111,7 +111,7 @@ services:
      test: "exit 0"
  
  project-service:
-   build: project-service/
+   build: project-service
    depends_on:
      config-service:
        condition: service_healthy
