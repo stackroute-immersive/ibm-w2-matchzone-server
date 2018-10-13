@@ -241,7 +241,7 @@ services:
    hostname: localhost
    ports:
      - 8084:8084
-   container_name: coreNLP
+   container_name: corenlp
    depends_on:
      eureka-server:
        condition: service_healthy
