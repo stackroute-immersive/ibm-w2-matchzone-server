@@ -215,12 +215,12 @@ services:
      test: "exit 0"
     
  coreNLP-service:
-  build: coreNLP-service/
-  image: coreNLP-service
-  restart: always
-    environment: 
-      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
-      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
+   build: coreNLP-service/
+   image: coreNLP-service
+   restart: always
+     environment: 
+       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
     network_mode: "host"
     hostname: localhost
     ports:
