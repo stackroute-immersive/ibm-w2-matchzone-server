@@ -243,29 +243,6 @@ services:
      - 8095:8095
    healthcheck:
      test: "exit 0"
-  
- coreNLP-service:
-   build: coreNLP-service/
-   image: coreNLP-service
-   restart: always
-   mem_limit: 1500m
-   environment:
-     - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
-     - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
-   network_mode: "host"
-   hostname: localhost
-   ports:
-     - 8084:8084
-   container_name: corenlp#
-   depends_on:
-     eureka-server:
-       condition: service_healthy
-     config-service:
-       condition: service_healthy
-     search-service:
-       condition: service_healthy
-   healthcheck:
-     test: "exit 0"
 
  
  zookeeper:
