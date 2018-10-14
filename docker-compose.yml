@@ -3,9 +3,6 @@ version: '2.1'
 services:
  eureka-server:
    build: eureka-server/
-   depends_on:
-     config-service:
-       condition: service_healthy
    restart: always
    network_mode: "host"
    image: eureka-service
