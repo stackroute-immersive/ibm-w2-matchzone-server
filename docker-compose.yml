@@ -5,7 +5,7 @@ volumes:
   grafana_data: {}
 
 services:
- eureka-server:
+  eureka-server:
    build: eureka-server/
    depends_on:
      config-service:
