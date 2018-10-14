@@ -217,7 +217,7 @@ services:
  coreNLP-service:
   build: coreNLP-service/
   image: coreNLP-service
-    restart: always
+  restart: always
     environment: 
       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
