@@ -5,7 +5,7 @@ volumes:
   grafana_data: {}
 
 services:
-  eureka-server:
+ eureka-server:
    build: eureka-server/
    depends_on:
      config-service:
@@ -104,7 +104,7 @@ services:
      test: "exit 0"
  
  project-service:
-   build: project-service
+   build: project-service/
    depends_on:
      config-service:
        condition: service_healthy
@@ -213,7 +213,28 @@ services:
      - 8096:8096
    healthcheck:
      test: "exit 0"
-         
+
+ coreNLP-service:
+  build: coreNLP-service/
+  image: coreNLP-service
+  restart: always
+  environment:
+    - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+    - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
+  network_mode: "host"
+  hostname: localhost
+  ports:
+    - 8084:8084
+  container_name: corenlp#
+  depends_on:
+    eureka-server:
+      condition: service_healthy
+    config-service:
+      condition: service_healthy
+    search-service:
+      condition: service_healthy
+  healthcheck:
+    test: "exit 0"
 
  search-service:
    build: search-service/
@@ -228,6 +249,9 @@ services:
      - 8095:8095
    healthcheck:
      test: "exit 0"
+
+
+ 
  zookeeper:
    image: wurstmeister/zookeeper
    ports:
@@ -237,29 +261,6 @@ services:
    restart: always
    healthcheck:
      test: "exit 0"
-     
-  coreNLP-service:
-    build: coreNLP-service/
-    image: coreNLP-service
-    restart: always
-    mem_limit: 1500m
-    environment:
-      - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
-      - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
-    network_mode: "host"
-    hostname: localhost
-    ports:
-      - 8084:8084
-    container_name: corenlp#
-    depends_on:
-      eureka-server:
-        condition: service_healthy
-      config-service:
-        condition: service_healthy
-      search-service:
-        condition: service_healthy
-    healthcheck:
-      test: "exit 0"
 
  kafka:
    image: wurstmeister/kafka
