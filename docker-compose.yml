@@ -213,26 +213,28 @@ services:
      - 8096:8096
    healthcheck:
      test: "exit 0"
-    
+
  coreNLP-service:
-   build: coreNLP-service/
-   image: coreNLP-service
-   restart: always
-     environment: 
-       - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
-       - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
-    network_mode: "host"
-    hostname: localhost
-    ports:
-      - 8084:8084
-    container_name: corenlp
-    depends_on:
-      eureka-service:
-        condition: service_healthy
-      config-service:
-        condition: service_healthy
-    healthcheck:
-      test: "exit 0"
+  build: coreNLP-service/
+  image: coreNLP-service
+  restart: always
+  environment:
+    - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
+    - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
+  network_mode: "host"
+  hostname: localhost
+  ports:
+    - 8084:8084
+  container_name: corenlp
+  depends_on:
+    eureka-server:
+      condition: service_healthy
+    config-service:
+      condition: service_healthy
+    search-service:
+      condition: service_healthy
+  healthcheck:
+    test: "exit 0"
 
  search-service:
    build: search-service/
