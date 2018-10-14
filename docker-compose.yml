@@ -12,7 +12,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: eureka-service
    hostname: localhost
    ports:
@@ -26,7 +26,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
-   mem_limit: 150m
+   mem_limit: 250m
    network_mode: "host"
    image: user-service
    hostname: localhost
@@ -42,7 +42,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: downstream-service
    hostname: localhost
    ports:
@@ -58,7 +58,7 @@ services:
    restart: always
    network_mode: "host"
    image: academic-service
-   mem_limit: 150m
+   mem_limit: 250m
    hostname: localhost
    ports:
      - 8082:8082
@@ -72,7 +72,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: certification-service
    hostname: localhost
    ports:
@@ -87,7 +87,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: location-service
    hostname: localhost
    ports:
@@ -102,7 +102,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: user-service
    hostname: localhost
    ports:
@@ -117,7 +117,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: project-service
    hostname: localhost
    ports:
@@ -132,7 +132,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: skill-service
    hostname: localhost
    ports:
@@ -145,7 +145,7 @@ services:
    restart: always
    network_mode: "host"
    image: config-service
-   mem_limit: 150m
+   mem_limit: 250m
    hostname: localhost
    ports:
      - 8094:8094
@@ -160,7 +160,7 @@ services:
      eureka-server:
        condition: service_healthy
    restart: always
-   mem_limit: 150m
+   mem_limit: 250m
    network_mode: "host"
    image: zuul-service
    hostname: localhost
@@ -175,7 +175,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
-   mem_limit: 150m
+   mem_limit: 250m
    network_mode: "host"
    image: userprofile-service
    hostname: localhost
@@ -190,7 +190,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
-   mem_limit: 150m
+   mem_limit: 250m
    network_mode: "host"
    image: userauthentication-service
    hostname: localhost
@@ -221,7 +221,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    image: autocomplete-service
    hostname: localhost
    ports:
@@ -249,7 +249,7 @@ services:
    ports:
      - "2181:2181"
    network_mode: "host"
-   mem_limit: 150m
+   mem_limit: 250m
    hostname: localhost
    restart: always
    healthcheck:
@@ -267,7 +267,7 @@ services:
    hostname: localhost
    depends_on:
      - zookeeper
-   mem_limit: 150m
+   mem_limit: 250m
    restart: always
    healthcheck:
      test: "exit 0"
@@ -280,7 +280,7 @@ services:
    ports:
      - 27000:27017
    restart: always
-   mem_limit: 150m
+   mem_limit: 250m
    healthcheck:
      test: "exit 0"
 
@@ -289,7 +289,7 @@ services:
    ports:
      - 3306:3306
    container_name: mysql
-   mem_limit: 150m
+   mem_limit: 250m
    environment:
      - MYSQL_ROOT_PASSWORD=root
      - MYSQL_DATABASE=register
@@ -329,7 +329,7 @@ services:
   container_name: matchzone-front-end
   network_mode: "host"
   hostname: localhost
-  mem_limit: 150m
+  mem_limit: 512m
   ports:
    - 4200:4200
   restart: always
@@ -340,7 +340,7 @@ services:
    image: prom/prometheus
    ports:
     - "9099:9090"
-   mem_limit: 150m
+   mem_limit: 250m
    volumes:
     - ./prometheus.yml:/etc/prometheus/prometheus.yml
     - ./prometheus/:/etc/prometheus/
@@ -357,7 +357,7 @@ services:
  grafana:
    ports:
      - "3000:3000"
-   mem_limit: 150m
+   mem_limit: 250m
    volumes:
      - grafana_data:/var/lib/grafana
      - ./grafana/datasources:/etc/grafana/datasources
