@@ -6,8 +6,8 @@ public class Certification {
 	private String certificationName;
 	private String certificationAuthority;
 	private String licenseNumber;
-	private String durationFrom;
-	private String durationTo;
+	private Integer durationFrom;
+	private Integer durationTo;
 	private String certificationURL;
 
 	public String getUserName() {
@@ -17,7 +17,7 @@ public class Certification {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
+	
 	public String getCertificationName() {
 		return certificationName;
 	}
@@ -42,19 +42,19 @@ public class Certification {
 		this.licenseNumber = licenseNumber;
 	}
 
-	public String getDurationFrom() {
+	public Integer getDurationFrom() {
 		return durationFrom;
 	}
 
-	public void setDurationFrom(String durationFrom) {
+	public void setDurationFrom(Integer durationFrom) {
 		this.durationFrom = durationFrom;
 	}
 
-	public String getDurationTo() {
+	public Integer getDurationTo() {
 		return durationTo;
 	}
 
-	public void setDurationTo(String durationTo) {
+	public void setDurationTo(Integer durationTo) {
 		this.durationTo = durationTo;
 	}
 
@@ -65,14 +65,9 @@ public class Certification {
 	public void setCertificationURL(String certificationURL) {
 		this.certificationURL = certificationURL;
 	}
-	
-
-	public Certification() {
-		super();
-	}
 
 	public Certification(String userName, String certificationName, String certificationAuthority, String licenseNumber,
-			String durationFrom, String durationTo, String certificationURL) {
+			Integer durationFrom, Integer durationTo, String certificationURL) {
 		super();
 		this.userName = userName;
 		this.certificationName = certificationName;
@@ -83,12 +78,8 @@ public class Certification {
 		this.certificationURL = certificationURL;
 	}
 
-	@Override
-	public String toString() {
-		return "Certification [userName=" + userName + ", certificationName=" + certificationName
-				+ ", certificationAuthority=" + certificationAuthority + ", licenseNumber=" + licenseNumber
-				+ ", durationFrom=" + durationFrom + ", durationTo=" + durationTo + ", certificationURL="
-				+ certificationURL + "]";
+	public Certification() {
+		super();
 	}
 
 }

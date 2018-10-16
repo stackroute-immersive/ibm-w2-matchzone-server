@@ -4,6 +4,7 @@ import { SkillsService } from '../services/skills.service';
 import { TokenStorage } from '../core/token.storage';
 import { Router } from "@angular/router";
 import { error } from "@angular/compiler/src/util";
+import { AutoCompletService } from '../services/autocomplete.service';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
@@ -11,13 +12,16 @@ import { error } from "@angular/compiler/src/util";
 })
 export class SkillsComponent implements OnInit {
   skills: Skills = new Skills();
+  skillName:string="";
+  result:string[]=[];;
   error: any;
-  constructor(private skillService: SkillsService, private token: TokenStorage, private router: Router) {
+  constructor(private skillService: SkillsService, private token: TokenStorage, private router: Router,private auto:AutoCompletService) {
     this.skills.userName = token.getUserName();
   }
 
   ngOnInit() {
   }
+  
   onSubmit(skills: Skills) {
     this.skills = skills;
     console.log(this.skills);
@@ -26,9 +30,6 @@ export class SkillsComponent implements OnInit {
         console.log(data)
         error => { (this.error = error);  }
       });
-    // if (error != null) this.error = "Saving Data Failed";
-    // else {
-    //   this.error = "Data saved successfully";
-    // }
+   
   }
 }

@@ -30,7 +30,7 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, String> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.01:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -49,7 +49,7 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, LocationIndex> locationConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -68,7 +68,7 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, CertificationIndex> certificationConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -87,7 +87,7 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, AcademicIndex> academicConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -125,7 +125,7 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, ProjectIndex> projectConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -144,7 +144,7 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, SkillIndex> skillConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

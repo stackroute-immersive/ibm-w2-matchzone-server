@@ -4,6 +4,7 @@ import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { Personal } from "../model/personal";
 import { TokenStorage } from '../core/token.storage';
+import { Result } from '../model/result';
 const httpOptions = {
   headers: new HttpHeaders({ "Content-type": "application/json" })
 };
@@ -15,9 +16,10 @@ export class SearchService {
   query: string;
   constructor(private http: HttpClient) { }
   private searchUrl: string = "http://localhost:8084";
-  postQuery(query) {
+  postQuery(query):Observable<any> {
     this.query = query;
     console.log(query);
-    return this.http.get<String>(`${this.searchUrl}/api/v1/search/` + this.query);
+    return this.http.get<Result[]>(`${this.searchUrl}/api/v1/search/` + this.query);
   }
+ 
 }

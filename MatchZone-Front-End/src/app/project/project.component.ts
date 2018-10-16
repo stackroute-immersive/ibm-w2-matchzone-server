@@ -23,13 +23,9 @@ export class ProjectComponent implements OnInit {
     console.log(this.projects);
       this.projectService.postProjects(this.projects).subscribe(
         data=> {console.log(data)
-          error => {(this.error =error);this.router.navigate(["academic-details"])}
+          error => {(this.error =error);}
         });
-        if(error!=null)this.error="Saving Data Failed";
-    else
-    {
-    this.error="Data saved successfully";
-    }
+        
   }
 
 }

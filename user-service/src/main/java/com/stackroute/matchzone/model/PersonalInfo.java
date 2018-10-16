@@ -1,189 +1,158 @@
 package com.stackroute.matchzone.model;
 
+import java.util.Date;
+
 public class PersonalInfo {
 
-	private String profileId;
-	private String picture;
-	private String name;
-	private String dob;
-	private String age;
+	private String userName;
+	private String userId;
+	private Date dateOfBirth;
 	private String gender;
-	private String mobile;
-	private String email;
-	private String facebook;
-	private String linkedin;
-	private String github;
+	private String maritalStatus;
+	private String permanentAddress;
+	private String homeTown;
+	private Integer pinCode;
+	private String languages;
+	private Integer age;
 	private String bloodGroup;
-	private String message;
+	private String linkedinUrl;
+	private String emailId;
+	private String gitHubUrl;
 
-	
-	// private String certificates;
-
-	public String getMessage() {
-		return message;
+	public String getUserId() {
+		return userId;
 	}
 
-
-	public void setMessage(String message) {
-		this.message = message;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-
-	public PersonalInfo() {
-
+	public String getUserName() {
+		return userName;
 	}
 
-
-	public PersonalInfo(String profileId, String picture, String name, String dob, String age, String gender,
-			String mobile, String email, String facebook, String linkedin, String github, String bloodGroup,
-			String message) {
-		super();
-		this.profileId = profileId;
-		this.picture = picture;
-		this.name = name;
-		this.dob = dob;
-		this.age = age;
-		this.gender = gender;
-		this.mobile = mobile;
-		this.email = email;
-		this.facebook = facebook;
-		this.linkedin = linkedin;
-		this.github = github;
-		this.bloodGroup = bloodGroup;
-		this.message = message;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-
-	public String getProfileId() {
-		return profileId;
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-
-	public void setProfileId(String profileId) {
-		this.profileId = profileId;
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
-
-
-	public String getPicture() {
-		return picture;
-	}
-
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getDob() {
-		return dob;
-	}
-
-
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-
-
-	public String getAge() {
-		return age;
-	}
-
-
-	public void setAge(String age) {
-		this.age = age;
-	}
-
 
 	public String getGender() {
 		return gender;
 	}
 
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-
-	public String getMobile() {
-		return mobile;
+	public String getMaritalStatus() {
+		return maritalStatus;
 	}
 
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
 	}
 
-
-	public String getEmail() {
-		return email;
+	public String getPermanentAddress() {
+		return permanentAddress;
 	}
 
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPermanentAddress(String permanentAddress) {
+		this.permanentAddress = permanentAddress;
 	}
 
-
-	public String getFacebook() {
-		return facebook;
+	public String getHomeTown() {
+		return homeTown;
 	}
 
-
-	public void setFacebook(String facebook) {
-		this.facebook = facebook;
+	public void setHomeTown(String homeTown) {
+		this.homeTown = homeTown;
 	}
 
-
-	public String getLinkedin() {
-		return linkedin;
+	public Integer getPinCode() {
+		return pinCode;
 	}
 
-
-	public void setLinkedin(String linkedin) {
-		this.linkedin = linkedin;
+	public void setPinCode(Integer pinCode) {
+		this.pinCode = pinCode;
 	}
 
-
-	public String getGithub() {
-		return github;
+	public String getLanguages() {
+		return languages;
 	}
 
-
-	public void setGithub(String github) {
-		this.github = github;
+	public void setLanguages(String languages) {
+		this.languages = languages;
 	}
 
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 
 	public String getBloodGroup() {
 		return bloodGroup;
 	}
 
-
 	public void setBloodGroup(String bloodGroup) {
 		this.bloodGroup = bloodGroup;
 	}
 
-
-	@Override
-	public String toString() {
-		return "PersonalInfo [profileId=" + profileId + ", picture=" + picture + ", name=" + name + ", dob=" + dob
-				+ ", age=" + age + ", gender=" + gender + ", mobile=" + mobile + ", email=" + email + ", facebook="
-				+ facebook + ", linkedin=" + linkedin + ", github=" + github + ", bloodGroup=" + bloodGroup
-				+ ", message=" + message + "]";
+	public String getLinkedinUrl() {
+		return linkedinUrl;
 	}
 
+	public void setLinkedinUrl(String linkedinUrl) {
+		this.linkedinUrl = linkedinUrl;
+	}
 
-  
-	
-	
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getGitHubUrl() {
+		return gitHubUrl;
+	}
+
+	public void setGitHubUrl(String gitHubUrl) {
+		this.gitHubUrl = gitHubUrl;
+	}
+
+	public PersonalInfo(String userId, String userName, Date dateOfBirth, String gender, String maritalStatus,
+			String permanentAddress, String homeTown, Integer pinCode, String languages, Integer age, String bloodGroup,
+			String linkedinUrl, String emailId, String gitHubUrl) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.maritalStatus = maritalStatus;
+		this.permanentAddress = permanentAddress;
+		this.homeTown = homeTown;
+		this.pinCode = pinCode;
+		this.languages = languages;
+		this.age = age;
+		this.bloodGroup = bloodGroup;
+		this.linkedinUrl = linkedinUrl;
+		this.emailId = emailId;
+		this.gitHubUrl = gitHubUrl;
+	}
+
+	public PersonalInfo() {
+		super();
+	}
+
 }

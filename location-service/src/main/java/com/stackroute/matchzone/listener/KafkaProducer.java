@@ -23,7 +23,7 @@ public class KafkaProducer {
     @KafkaListener(topics = "location_data", groupId = "group_json", containerFactory = "locationKafkaListenerFactory")
     public void consumeJson(Location location) {
     	
-    	LocationIndex locationIndex = new LocationIndex(location.getUserName(), location.getAddress());
+    	LocationIndex locationIndex = new LocationIndex(location.getUserName(), location.getCity());
 		kafkaTemplate.send(TOPIC, locationIndex);
 		LOG.info("LocationIndex message='{}'", locationIndex);
     }

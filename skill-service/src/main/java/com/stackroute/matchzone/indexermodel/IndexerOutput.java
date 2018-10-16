@@ -27,6 +27,7 @@ public class IndexerOutput {
 
 	@KafkaListener(topics = "skill_data", groupId = "group_json", containerFactory = "skillKafkaListenerFactory")
 	public void consumeJson(Skills skill) {
+		System.out.println("11111111111111111111111111111111111111111111111111111"+skill);
 		String skills= skill.getiTSkills();
 		
 		kafkaTemplate.send(topic,

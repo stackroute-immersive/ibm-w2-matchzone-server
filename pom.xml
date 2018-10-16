@@ -78,11 +78,11 @@
 		<module>personalinfo-service</module>
 		<module>user-service</module>
 		<module>project-service</module>
-		<module>skill-service</module>	
-		<module>coreNLP-service</module>	
+		<module>skill-service</module>
+		<module>coreNLP-service</module>
 		<module>downstream-service</module>
-        	<module>autocomplete-service</module>
-	        <module>search-service</module>
-       
+		<module>autocomplete-service</module>
+		<module>search-service</module>
+
 	</modules>
 </project>

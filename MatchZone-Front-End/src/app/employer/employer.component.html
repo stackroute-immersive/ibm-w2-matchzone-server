@@ -18,10 +18,26 @@
 
     <input class="input" class="abc" type="text" name="query" id="query" [(ngModel)]="query" placeholder="Search for candidates">    <div
       class="search">
-      <a routerLink="/search-result"><button type="submit" (ng-click)="onSearch(query)"><i class="fa fa-search"></i></button></a>
+      <button type="submit" (click)="onSearch(query)"><i class="fa fa-search"></i></button>
     </div>
-
+    
   </mat-card>
+  <div *ngIf="result">
+    <mat-card>
+        <ul>
+
+           <span class="mat-card-title" style="text-align:center">
+              <li *ngFor="let result of result">
+                <a href="cards">{{result.userName}}</a>
+                
+                </li></span>
+
+     
+       
+       
+      </ul>
+    </mat-card>
+  </div>
 </body>
 
 <!-- Footer -->

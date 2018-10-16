@@ -17,7 +17,7 @@ public class PersonalInfoController {
     private KafkaTemplate<String, PersonalInfo> kafkaTemplate;
 
 	
-	static final String topic="PersonalInfo_Data";
+	static final String topic="person_data";
 
     @PostMapping("/api/v1/person")
     public String post(@RequestBody PersonalInfo perInfo) {

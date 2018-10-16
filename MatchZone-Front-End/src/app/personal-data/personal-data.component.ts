@@ -27,12 +27,9 @@ export class PersonalDataComponent implements OnInit {
     this.personalService.postPersonal(this.personal).subscribe(
       data => {
         console.log(data);
-        error => { (this.error = error); this.router.navigate(["personal-data"]) }
+        error => { (this.error = error);  }
       });
-    if (error != null) this.error = "Saving Data Failed";
-    else {
-      this.error = "Data saved successfully";
-    }
+   
   }
 
 }

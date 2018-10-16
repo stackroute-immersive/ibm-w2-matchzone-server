@@ -20,7 +20,7 @@
       <label class="form-label form-label-big col-sm-2" for="requiredText">IT Skills<em>*</em></label>
       <div class="col-sm-10">
         <input matInput class="form-control ng-untouched ng-pristine ng-invalid" name="iTSkills" placeholder="Enter your IT Skills"
-          type="text" id="iTSkills" [(ngModel)]="skills.iTSkills">
+          type="text" id="iTSkills" [(ngModel)]="skills.iTSkills"  (keyup)="onKey($event)"> {{result}}
       </div>
     </div>
 

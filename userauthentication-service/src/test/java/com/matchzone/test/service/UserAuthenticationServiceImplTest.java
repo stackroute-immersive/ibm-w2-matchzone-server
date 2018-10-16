@@ -14,11 +14,11 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.matchzone.exception.UserAlreadyExistsException;
-import com.matchzone.exception.UserNotFoundException;
-import com.matchzone.model.User;
-import com.matchzone.repository.UserAuthenticationRepository;
-import com.matchzone.service.UserAuthenticationServiceImpl;
+import com.stackroute.matchzone.exception.UserAlreadyExistsException;
+import com.stackroute.matchzone.exception.UserNotFoundException;
+import com.stackroute.matchzone.model.User;
+import com.stackroute.matchzone.repository.UserAuthenticationRepository;
+import com.stackroute.matchzone.service.UserAuthenticationServiceImpl;
 
 
 

@@ -23,13 +23,9 @@ export class LocationComponent implements OnInit {
     console.log(this.location);
       this.locationService.postLocation(this.location).subscribe(
         data=> {console.log(data)
-          error => {(this.error =error);this.router.navigate(["academic-details"])}
+          error => {(this.error =error);}
         });
-        if(error!=null)this.error="Saving Data Failed";
-    else
-    {
-    this.error="Data saved successfully";
-    }
+        
   }
 
 }

@@ -12,6 +12,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: eureka-service
    hostname: localhost
    ports:
@@ -25,6 +26,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+   mem_limit: 150m
    network_mode: "host"
    image: user-service
    hostname: localhost
@@ -40,6 +42,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: downstream-service
    hostname: localhost
    ports:
@@ -55,6 +58,7 @@ services:
    restart: always
    network_mode: "host"
    image: academic-service
+   mem_limit: 150m
    hostname: localhost
    ports:
      - 8082:8082
@@ -68,6 +72,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: certification-service
    hostname: localhost
    ports:
@@ -82,6 +87,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: location-service
    hostname: localhost
    ports:
@@ -96,6 +102,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: user-service
    hostname: localhost
    ports:
@@ -104,12 +111,13 @@ services:
      test: "exit 0"
  
  project-service:
-   build: project-service/
+   build: projects-service/
    depends_on:
      config-service:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: project-service
    hostname: localhost
    ports:
@@ -124,6 +132,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: skill-service
    hostname: localhost
    ports:
@@ -136,6 +145,7 @@ services:
    restart: always
    network_mode: "host"
    image: config-service
+   mem_limit: 150m
    hostname: localhost
    ports:
      - 8094:8094
@@ -150,6 +160,7 @@ services:
      eureka-server:
        condition: service_healthy
    restart: always
+   mem_limit: 150m
    network_mode: "host"
    image: zuul-service
    hostname: localhost
@@ -164,6 +175,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+   mem_limit: 150m
    network_mode: "host"
    image: userprofile-service
    hostname: localhost
@@ -178,6 +190,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+   mem_limit: 150m
    network_mode: "host"
    image: userauthentication-service
    hostname: localhost
@@ -192,6 +205,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+   mem_limit: 512m
    network_mode: "host"
    image: indexer-service
    hostname: localhost
@@ -207,6 +221,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   mem_limit: 150m
    image: autocomplete-service
    hostname: localhost
    ports:
@@ -215,26 +230,19 @@ services:
      test: "exit 0"
 
  coreNLP-service:
-  build: coreNLP-service/
-  image: coreNLP-service
-  restart: always
-  environment:
-    - "JAVA_OPTS=-XX:+UnlockExperimentalVMOptions"
-    - "JAVA_OPTS=-XX:+UseCGroupMemoryLimitForHeap"
-  network_mode: "host"
-  hostname: localhost
-  ports:
-    - 8084:8084
-  container_name: corenlp
-  depends_on:
-    eureka-server:
-      condition: service_healthy
-    config-service:
-      condition: service_healthy
-    search-service:
-      condition: service_healthy
-  healthcheck:
-    test: "exit 0"
+   build: coreNLP-service/
+   depends_on:
+     config-service:
+       condition: service_healthy
+   restart: always
+   mem_limit: 150m
+   network_mode: "host"
+   image: coreNLP-service
+   hostname: localhost
+   ports:
+     - 8084:8084
+   healthcheck:
+     test: "exit 0"
 
  search-service:
    build: search-service/
@@ -244,6 +252,7 @@ services:
    restart: always
    network_mode: "host"
    image: search-service
+   mem_limit: 512m
    hostname: localhost
    ports:
      - 8095:8095
@@ -257,6 +266,7 @@ services:
    ports:
      - "2181:2181"
    network_mode: "host"
+   mem_limit: 150m
    hostname: localhost
    restart: always
    healthcheck:
@@ -274,6 +284,7 @@ services:
    hostname: localhost
    depends_on:
      - zookeeper
+   mem_limit: 150m
    restart: always
    healthcheck:
      test: "exit 0"
@@ -286,6 +297,7 @@ services:
    ports:
      - 27000:27017
    restart: always
+   mem_limit: 150m
    healthcheck:
      test: "exit 0"
 
@@ -294,6 +306,7 @@ services:
    ports:
      - 3306:3306
    container_name: mysql
+   mem_limit: 150m
    environment:
      - MYSQL_ROOT_PASSWORD=root
      - MYSQL_DATABASE=register
@@ -313,6 +326,7 @@ services:
      - "7474:7474"
      - "7687:7687"
    container_name: neo4j
+   mem_limit: 1g
    environment:
      - NEO4J_AUTH=neo4j/12345
 #      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
@@ -327,11 +341,12 @@ services:
 
 
  matchzone-front-end:
-  build: MatchZone-Front-End/
+  build: Matchzone-Front-End/
   image: matchzone-front-end
   container_name: matchzone-front-end
   network_mode: "host"
   hostname: localhost
+  mem_limit: 150m
   ports:
    - 4200:4200
   restart: always
@@ -342,6 +357,7 @@ services:
    image: prom/prometheus
    ports:
     - "9099:9090"
+   mem_limit: 150m
    volumes:
     - ./prometheus.yml:/etc/prometheus/prometheus.yml
     - ./prometheus/:/etc/prometheus/
@@ -358,6 +374,7 @@ services:
  grafana:
    ports:
      - "3000:3000"
+   mem_limit: 150m
    volumes:
      - grafana_data:/var/lib/grafana
      - ./grafana/datasources:/etc/grafana/datasources

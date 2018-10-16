@@ -15,13 +15,8 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import com.stackroute.matchzone.model.Academic;
 import com.stackroute.matchzone.model.Certification;
 import com.stackroute.matchzone.model.Location;
-/*import com.stackroute.matchzone.model.AcademicQualification;
-import com.stackroute.matchzone.model.Certificates;
-import com.stackroute.matchzone.model.Experience;
-import com.stackroute.matchzone.model.Location;*/
 import com.stackroute.matchzone.model.PersonalInfo;
 import com.stackroute.matchzone.model.Project;
-/*import com.stackroute.matchzone.model.Projects;*/
 import com.stackroute.matchzone.model.Skills;
 
 
