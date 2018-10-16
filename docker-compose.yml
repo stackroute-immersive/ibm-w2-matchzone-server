@@ -328,7 +328,7 @@ services:
 
 
  matchzone-front-end:
-  build: Matchzone-Front-End/
+  build: MatchZone-Front-End/
   image: matchzone-front-end
   container_name: matchzone-front-end
   network_mode: "host"
