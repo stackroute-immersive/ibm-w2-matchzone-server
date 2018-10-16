@@ -229,20 +229,7 @@ services:
    healthcheck:
      test: "exit 0"
 
- coreNLP-service:
-   build: coreNLP-service/
-   depends_on:
-     config-service:
-       condition: service_healthy
-   restart: always
-   mem_limit: 150m
-   network_mode: "host"
-   image: coreNLP-service
-   hostname: localhost
-   ports:
-     - 8084:8084
-   healthcheck:
-     test: "exit 0"
+
 
  search-service:
    build: search-service/
