@@ -80,19 +80,41 @@ public class NLPController {
         while(sc.hasNext()) {
             organization.add(sc.next().toLowerCase());
         }
+        sc=new Scanner(new File("certification.txt"));
+        ArrayList<String> certification=new ArrayList<>();
+        System.out.println(certification);
+        while(sc.hasNext()) {
+            certification.add(sc.next().toLowerCase());
+        }
+        sc=new Scanner(new File("college.txt"));
+        ArrayList<String> college=new ArrayList<>();
+        System.out.println(college);
+        while(sc.hasNext()) {
+            college.add(sc.next().toLowerCase());
+        }
+        sc=new Scanner(new File("projects.txt"));
+        ArrayList<String> projects=new ArrayList<>();
+        System.out.println(projects);
+        while(sc.hasNext()) {
+            projects.add(sc.next().toLowerCase());
+        }
         
-        tokenString= tokenization.token(string,stopword,extra,skill,location,organization);
-        System.out.println(tokenString);
+        tokenString= tokenization.token(string,stopword,extra,skill,location,organization,certification,college,projects);
+       System.out.println(tokenString);
        search.setSkills(tagging.tagFunction(tokenString, skill));
        search.setLocation(tagging.tagFunction(tokenString, location));
        search.setExperience(tagging.tagYears(tokenString, extra));
        search.setOrganization(tagging.tagFunction(tokenString, organization));
+       search.setCertification(tagging.tagFunction(tokenString, certification));
+       search.setCollege(tagging.tagFunction(tokenString, college));
+       search.setProjects(tagging.tagFunction(tokenString, projects));
+       
         
         
         System.out.println(search);
 
         
-        String url="http://localhost:8095/coreNLP-service";
+        String url="http://localhost:8095/searchengine";
         HttpHeaders headers=new HttpHeaders();
         HttpEntity<Search> entity=new HttpEntity<>(search,headers);
         

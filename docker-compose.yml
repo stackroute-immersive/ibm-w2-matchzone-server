@@ -1,5 +1,9 @@
 version: '2.1'
 
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+
 services:
  eureka-server:
    build: eureka-server/
@@ -8,6 +12,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   
    image: eureka-service
    hostname: localhost
    ports:
@@ -15,14 +20,15 @@ services:
    healthcheck:
      test: "exit 0"
  
- upstream-service:
-   build: upstream-service/
+ user-service:
+   build: user-service/
    depends_on:
      config-service:
        condition: service_healthy
    restart: always
+   
    network_mode: "host"
-   image: upstream-service
+   image: user-service
    hostname: localhost
    ports:
      - 8091:8091
@@ -36,6 +42,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   
    image: downstream-service
    hostname: localhost
    ports:
@@ -51,6 +58,7 @@ services:
    restart: always
    network_mode: "host"
    image: academic-service
+   
    hostname: localhost
    ports:
      - 8082:8082
@@ -64,6 +72,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   
    image: certification-service
    hostname: localhost
    ports:
@@ -78,6 +87,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   
    image: location-service
    hostname: localhost
    ports:
@@ -86,26 +96,28 @@ services:
      test: "exit 0"
 
  personalinfo-service:
-   build: personalinfo-service/
+   build: user-service/
    depends_on:
      config-service:
        condition: service_healthy
    restart: always
    network_mode: "host"
-   image: personalinfo-service
+   
+   image: user-service
    hostname: localhost
    ports:
      - 8088:8088
    healthcheck:
      test: "exit 0"
  
- projects-service:
-   build: projects-service/
+ project-service:
+   build: project-service/
    depends_on:
      config-service:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   
    image: project-service
    hostname: localhost
    ports:
@@ -120,6 +132,7 @@ services:
        condition: service_healthy
    restart: always
    network_mode: "host"
+   
    image: skill-service
    hostname: localhost
    ports:
@@ -132,6 +145,7 @@ services:
    restart: always
    network_mode: "host"
    image: config-service
+   
    hostname: localhost
    ports:
      - 8094:8094
@@ -146,6 +160,7 @@ services:
      eureka-server:
        condition: service_healthy
    restart: always
+  
    network_mode: "host"
    image: zuul-service
    hostname: localhost
@@ -160,6 +175,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+   
    network_mode: "host"
    image: userprofile-service
    hostname: localhost
@@ -174,6 +190,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+  
    network_mode: "host"
    image: userauthentication-service
    hostname: localhost
@@ -188,6 +205,7 @@ services:
      config-service:
        condition: service_healthy
    restart: always
+  
    network_mode: "host"
    image: indexer-service
    hostname: localhost
@@ -196,11 +214,46 @@ services:
    healthcheck:
      test: "exit 0"
 
+ autocomplete-service:
+   build: autocomplete-service/
+   depends_on:
+     config-service:
+       condition: service_healthy
+   restart: always
+   network_mode: "host"
+   
+   image: autocomplete-service
+   hostname: localhost
+   ports:
+     - 8096:8096
+   healthcheck:
+     test: "exit 0"
+
+
+
+ search-service:
+   build: search-service/
+   depends_on:
+     config-service:
+       condition: service_healthy
+   restart: always
+   network_mode: "host"
+   image: search-service
+  
+   hostname: localhost
+   ports:
+     - 8095:8095
+   healthcheck:
+     test: "exit 0"
+
+
+ 
  zookeeper:
    image: wurstmeister/zookeeper
    ports:
      - "2181:2181"
    network_mode: "host"
+   
    hostname: localhost
    restart: always
    healthcheck:
@@ -218,9 +271,11 @@ services:
    hostname: localhost
    depends_on:
      - zookeeper
+   
    restart: always
    healthcheck:
      test: "exit 0"
+ 
  mongodb:
    image: mongo
    container_name: "mongodb"
@@ -229,6 +284,7 @@ services:
    ports:
      - 27000:27017
    restart: always
+   
    healthcheck:
      test: "exit 0"
 
@@ -237,7 +293,7 @@ services:
    ports:
      - 3306:3306
    container_name: mysql
-   mem_limit: 2g
+   
    environment:
      - MYSQL_ROOT_PASSWORD=root
      - MYSQL_DATABASE=register
@@ -257,7 +313,7 @@ services:
      - "7474:7474"
      - "7687:7687"
    container_name: neo4j
-   mem_limit: 1024m
+   
    environment:
      - NEO4J_AUTH=neo4j/12345
 #      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
@@ -272,13 +328,50 @@ services:
 
 
  matchzone-front-end:
-  build: Matchzone-Front-End/
+  build: MatchZone-Front-End/
   image: matchzone-front-end
   container_name: matchzone-front-end
   network_mode: "host"
   hostname: localhost
+
   ports:
    - 4200:4200
   restart: always
   healthcheck:
    test: "exit 0" 
+
+ prometheus:
+   image: prom/prometheus
+   ports:
+    - "9099:9090"
+   
+   volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    - ./prometheus/:/etc/prometheus/
+    - prometheus_data:/prometheus
+   command:
+    - '--config.file=/etc/prometheus/prometheus.yml'
+    - '--storage.tsdb.path=/prometheus'
+    - '--web.console.libraries=/etc/prometheus/console_libraries'
+    - '--web.console.templates=/etc/prometheus/consoles'
+    - '--storage.tsdb.retention=200h'
+    - '--web.enable-lifecycle'
+   container_name: prometheus
+
+ grafana:
+   ports:
+     - "3000:3000"
+   volumes:
+     - grafana_data:/var/lib/grafana
+     - ./grafana/datasources:/etc/grafana/datasources
+     - ./grafana/dashboards:/etc/grafana/dashboards
+     - ./grafana/setup.sh:/setup.sh
+   command: ./setup.sh
+   environment:
+     - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+     - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+     - GF_USERS_ALLOW_SIGN_UP=false
+   links:
+    - prometheus
+   image: grafana/grafana
+   container_name: grafana

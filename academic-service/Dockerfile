@@ -1,8 +1,11 @@
-FROM java:8-jre
+FROM java:8
 
-ADD ./target/academic-service-1.1.0.jar /usr/src/academic-service-1.1.0.jar
+RUN mkdir /src
 
-WORKDIR usr/src
+WORKDIR /src
 
-ENTRYPOINT ["java","-jar", "academic-service-1.1.0.jar"]
+COPY target/academic-service-1.1.0.jar /src/academic-service-1.1.0.jar
 
+RUN sh -c 'touch /src/academic-service-1.1.0.jar'
+
+ENTRYPOINT ["java","-jar","/src/academic-service-1.1.0.jar"]

@@ -7,14 +7,14 @@
 	<artifactId>downstream-service</artifactId>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-kafka-consumer</name>
+	<name>downstream-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>ibm-w2-matchzone-server</artifactId>
 		<version>1.1.0</version>
-		 <!-- lookup parent from repository -->
+	        <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
